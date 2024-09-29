@@ -1,29 +1,26 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import "./App.css";
+import StarsCanvas from "./components/ui/StarBackground";
+import bgPattern from "./assets/img/bg_pattern.png"; // Import the image
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="container mx-auto p-4">
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>Welcome to My App</CardTitle>
-          <CardDescription>This is a basic UI using shadcn components</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-center text-2xl font-bold">{count}</p>
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          <Button onClick={() => setCount((count) => count + 1)}>
-            Increment
-          </Button>
-        </CardFooter>
-      </Card>
-    </div>
-  )
+    <main
+      className="h-screen w-screen overflow-hidden relative bg-slate-950 bg-no-repeat"
+      style={{ backgroundImage: `url(${bgPattern})` }}
+    >
+      <div>
+        <StarsCanvas />
+        <div className="relative z-10 flex flex-col gap-20">
+          {/* Your other components go here */}
+          {/* <Banner />
+          <About />
+          <Experience />
+          <Projects />
+          <Footer /> */}
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default App
+export default App;
