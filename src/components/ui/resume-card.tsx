@@ -33,6 +33,8 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
     if (description) {
       e.preventDefault();
       setIsExpanded(!isExpanded);
+    } else if (href) {
+      window.open(href, '_blank');
     }
   };
 
@@ -40,7 +42,10 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
 
   return (
     <div className="w-full" onClick={handleClick}>
-      <Card className="flex flex-col sm:flex-row bg-white/10 backdrop-filter backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 overflow-hidden text-white">
+      <Card className={cn(
+        "flex flex-col sm:flex-row bg-white/10 backdrop-filter backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 overflow-hidden text-white",
+        href && "cursor-pointer"
+      )}>
         <div className="flex-none p-4 sm:p-4">
           <Avatar className="border w-12 h-12 mx-auto sm:m-0 bg-white/20">
             <AvatarImage
