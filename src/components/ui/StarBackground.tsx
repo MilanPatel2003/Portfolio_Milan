@@ -10,7 +10,7 @@ const StarBackground = (props: any) => {
     return Float32Array.from(positions).filter(n => !isNaN(n));
   });
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;

@@ -4,7 +4,7 @@ import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei";
 import TypingAnimation from "@/components/ui/typing-animation";
 import { OrbitingSkills } from "./orbit";
 import About from "./About";
-import Skills from "../skills/Skills";
+import Skills from "./Skills";
 
 
 function Model() {
