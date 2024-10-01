@@ -10,6 +10,7 @@ import {
   import { HiOutlineHome, HiOutlineEnvelope } from "react-icons/hi2";
   import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
   import { Separator } from "@radix-ui/react-separator";
+  import React from 'react';
 
   // Define an interface for icon data
   interface IconData {
@@ -35,17 +36,18 @@ import {
         className="mx-auto flex items-center gap-4 rounded-full bg-transparent backdrop-blur-md px-4 py-2"
       >
         {iconData.map(({ icon, href }, i) => (
-          <>
-            <a key={i} href={href} target="_blank" rel="noopener noreferrer">
+          <React.Fragment key={i}>
+            <a href={href} target="_blank" rel="noopener noreferrer">
               <AppIcon mouseX={mouseX} icon={icon} />
             </a>
             {i === 0 && (
               <Separator
+                key={`separator-${i}`}
                 className="h-3 w-px bg-gray-300 mx-2"
                 orientation="vertical"
               />
             )}
-          </>
+          </React.Fragment>
         ))}
       </motion.div>
     );

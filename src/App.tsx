@@ -6,6 +6,7 @@ import Hero from "./sections/hero/Hero";
 import Experience from '@/sections/experience/Experience'; // Add this import
 import Projects from "./sections/projects/Projects";
 import { motion } from "framer-motion"; // Add this import
+import Footer from './sections/footer/footer';
 
 function App() {
   return (
@@ -24,12 +25,16 @@ function App() {
               <Hero />
               <Experience />
               <Projects />
+             
               {/* Add other sections here */}
               {/* <Banner /> */}
               {/* <About /> */}
               {/* <Experience /> */}
+              <Footer />
+
             </motion.main>
           </div>
+
         </div>
       </div>
     </Router>
