@@ -30,13 +30,15 @@ function App() {
               {/* <Banner /> */}
               {/* <About /> */}
               {/* <Experience /> */}
-              <Footer />
 
             </motion.main>
           </div>
+          <Footer />
 
         </div>
+
       </div>
+
     </Router>
   );
 }
