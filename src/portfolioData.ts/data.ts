@@ -56,6 +56,35 @@ export const projectsData = [
     video:  "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbc278a0ba2d5d631c855c/final_66fbc26b46d1c4540cae0887_301979.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727804347&Signature=JGZ1QmIKIEeDyg9%2BLyB6psiwyRAxE9uDN46jc3yys8sv4VFCHwOkZPCLgSar2oCiqDbKLkWBqnZbExToTfHxsXiVHAXzMBg5G0SYW7SMhQ%2B0amou6rx16mezxjlDxWGjGV5Km0p3tw9L1bB9Rltjme9mFnw1nkjN%2FMKyBAhpJdlXbd2eyIagNWaPG51zDAK9kJuxWMCaUPPVg3JLNdEOuqwnBjdv2kwX8wUSbf%2BRJvD%2BF184PfbtHt%2FQOZ5ohF8mpxYKk0%2BfGi5W6LpXErUg8eM6TpGB%2BzPNlbM8AGBw7Ngu69PfW5dAc1Kk2ps%2Bq7XDYMLLFNjmTXVADzHoIFM%2B7A%3D%3D#t=0.01", // Add a video URL if available
   },
   {
+    title: "Sci-Fi 3D Avatar Customization",
+    href: "https://milanpatel2003.github.io/ThreeJS/",
+    dates: "2024", // Update with the correct date if needed
+    active: true,
+    description:
+      "Developed an interactive 3D avatar customization tool using Three.js. Users can personalize a sci-fi character model with various options for hair, clothing, and accessories. Implemented a user-friendly interface with lil-gui for easy customization controls.",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Three.js",
+      "lil-gui",
+    ],
+    links: [
+      {
+        type: "Website",
+        href: "https://milanpatel2003.github.io/ThreeJS/",
+        icon: FaGlobe as React.ElementType,
+      },
+      {
+        type: "source",
+        href: "https://github.com/MilanPatel2003/ThreeJS",
+        icon: FaGithub as React.ElementType,
+      },
+    ],
+    image: "", // Add an image URL if available
+    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbd4048d09f2ba7a30a391/final_66fbd3ecd48c8cbd8e088ab1_424103.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727808664&Signature=gLINs28h3v%2B%2BHm7%2FvD1i133qpHTTzV5egfawjUq73BlzpBHRdPldYJw6HJih4Vd7OWoGdtbDJSnYv2s4WV4E1zFWKXNeXFzj5HLID4PS79Bqhqj8A8kYpdQ3evJR1OPlp5MMRAM9hHMbORbkqaS7vN1exgDB79e4z7DYAS2ZwX6xx3hzKHCEOU7Yu9hT%2F%2FskLOlDrJ4pQHNhQPRh3kTgjZFq4Qsv3pOko1E%2BUzExilcapKf6mSI9QNinFHSZMrxqdVi19PgycfonjAfe9j4YiFLP951hTxGYMmPhduoLo%2B%2BYgm7aWQ7VmNjYw%2BuJelUJQSE7NcHIJZZZkyE41ajcVg%3D%3D#t=0.01", // Add a video URL if available
+  },
+  {
     title: "Portfolio Website",
     href: "https://milanpatel2003.github.io/My-portfolio/",
     dates: "2024", // Update with the correct date if needed
@@ -83,6 +112,9 @@ export const projectsData = [
     video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbcbc874b9f4924f5a685b/final_66fbcba1dc8801511ac6f912_306292.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727806556&Signature=dBk%2FRUsOoHnx%2BFsfsttAiyfeZ%2F4%2FqGBt4PdT62vaUShDUW32Povcru4cpMKGVTALYBDhRfFQx%2BUUboygY%2F70NJ0yxnxtucwEN5%2BYeB0VacHetIdLL1NK4TLFCxORh3eP7TirHikc1%2FGSZsGIBJxAcbC2G5HhWTCq9I4NJloCNs2lHUYqKQrhllAieyKcLmWQW8So4%2FVKjcqPuozcG49bMRMWu17dO6tKnVgraW5ykAcNVf1VR8FozHOVNIvo3beAbXFvnTCmkiPS9reO4m6qudVXVKCiXlNcu%2FG0vP7c90lFsHWYTuuxePM%2Brj9rEOPYB9b7kSmtspdDcKpmzUe7zw%3D%3D#t=0.01", // Add a video URL if available
   },
   // Add more projects here following the same structure
+
+
+  // ... other projects ...
 ];
 
 
