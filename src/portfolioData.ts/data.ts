@@ -138,6 +138,32 @@ export const projectsData = [
     image: "", // Add an image URL if available
     video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fc02427de6d041071b8012/final_66fc01f9d12b07ad4714e55a_565310.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727820496&Signature=Eo%2BoDbL%2FJRPwgX2Ou0gC0tjOfn97GK%2B3tncQG1kSeCZDc50p2%2BdzQL4nrA6WEk5q%2FjCrdJeZXZHfgqJy74%2B%2BA92XrtsId8DRSTQ8SAnt3n2t5C2wDT05872av2VhUa%2Bx12NlyhxlVFGp%2BiB%2FKdoZzzmES%2BsGY8lFeyrAUCRuXLCtXJiJd7itMwYtFcpRutm%2B%2B8K2N7aZWZB2Ztg8%2BSU%2BkHXGm3M%2FW0MdQN93%2FTfpKW28Epxiuo01f67%2FkRL4DUKmVx7z0ONq1OcYwAOas8LP%2FPIIZCB2XSSltgL82ncXe1SFYRfOVk6XQqoi9eqWd5d93oRzQ3wTgkjhkm%2FwGcHOSw%3D%3D#t=0.01", // Add a video URL if available
   },
+
+  {
+    title: "Akash Travel",
+    href: "", // Add the project URL if available
+    dates: "2024", // Update with the correct date if needed
+    active: true,
+    description:
+      "A full-stack web application for travel bookings. Features include user management, package customization, and integrated Razorpay payments. The project demonstrates proficiency in building secure, feature-rich applications with modern web technologies.",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Bootstrap",
+      "Razorpay",
+    ],
+    links: [
+      {
+        type: "source",
+        href: "https://github.com/MilanPatel2003/MERN-TRAVEL", // Add the GitHub repository URL if available
+        icon: FaGithub as React.ElementType,
+      },
+    ],
+    image: "", // Add an image URL if available
+    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fc0f782930a8c6a1cc35b3/final_66fc0f59991107ee750d5631_308497.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727823887&Signature=awMftnI6xmjdtH71Ulh3QdO%2BJ058STDFBm0ax%2FzBchcdwZIy7t8hIjFzM46bPerTwYVvPHOug97JyOWqqfJcbkETk9vOvf5MZ5pctPF8m1EIwn6ClPu5HK%2B3J9Yu7mO2gZ%2FNzDvTZ4wt6l3NDNPY%2BsNqdxKgnqiuIev7jIHlLbfu6E3f%2Foewhn3qmQfBLoixl%2FWS9yceLtq2S2cM%2BYNmBPGYYI2u7H86XAdav73Da42kNeG9AAxmGs6CBpp2FyqF8%2FcWENGp42Dvy%2FrZOFTr27yEkv100vFighhYmswk0e9IP%2Bj6PMN6%2FcXp0kLeTit8VfbWZ3HYT%2Bcwg%2FZ1FIPNJQ%3D%3D#t=0.01", // Add a video URL if available
+  },
+  
   // Add more projects here following the same structure
 
 
