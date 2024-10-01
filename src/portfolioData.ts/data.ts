@@ -23,7 +23,7 @@ export const projectsData = [
 
   {
     title: "Tawkist - Real-Time Chat Application",
-    href: "https://your-tawkist-link.com", // Replace with the actual link
+    href: "https://tawkist-chat-application.onrender.com", // Replace with the actual link
     dates: "2024", // Update with the correct date range
     active: true,
     description:
@@ -111,10 +111,43 @@ export const projectsData = [
     image: "", // Add an image URL if available
     video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbcbc874b9f4924f5a685b/final_66fbcba1dc8801511ac6f912_306292.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727806556&Signature=dBk%2FRUsOoHnx%2BFsfsttAiyfeZ%2F4%2FqGBt4PdT62vaUShDUW32Povcru4cpMKGVTALYBDhRfFQx%2BUUboygY%2F70NJ0yxnxtucwEN5%2BYeB0VacHetIdLL1NK4TLFCxORh3eP7TirHikc1%2FGSZsGIBJxAcbC2G5HhWTCq9I4NJloCNs2lHUYqKQrhllAieyKcLmWQW8So4%2FVKjcqPuozcG49bMRMWu17dO6tKnVgraW5ykAcNVf1VR8FozHOVNIvo3beAbXFvnTCmkiPS9reO4m6qudVXVKCiXlNcu%2FG0vP7c90lFsHWYTuuxePM%2Brj9rEOPYB9b7kSmtspdDcKpmzUe7zw%3D%3D#t=0.01", // Add a video URL if available
   },
+
+  {
+    title: "Tin Dog - Bootstrap Practice Website",
+    href: "https://milanpatel2003.github.io/bootstrap-practice-website/",
+    dates: "2023",
+    active: true,
+    description:
+      "Developed 'Tin Dog,' a single-page website using Bootstrap for practice purposes. The site features a responsive design, showcasing essential information about a fictional dog dating app in a clean and organized manner. This project demonstrates proficiency in using Bootstrap for creating modern, mobile-friendly web layouts.",
+    technologies: [
+      "HTML",
+      "Bootstrap",
+    ],
+    links: [
+      {
+        type: "Website",
+        href: "https://milanpatel2003.github.io/bootstrap-practice-website/",
+        icon: FaGlobe as React.ElementType,
+      },
+      {
+        type: "source",
+        href: "https://github.com/MilanPatel2003/bootstrap-practice-website",
+        icon: FaGithub as React.ElementType,
+      },
+    ],
+    image: "", // Add an image URL if available
+    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fc02427de6d041071b8012/final_66fc01f9d12b07ad4714e55a_565310.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727820496&Signature=Eo%2BoDbL%2FJRPwgX2Ou0gC0tjOfn97GK%2B3tncQG1kSeCZDc50p2%2BdzQL4nrA6WEk5q%2FjCrdJeZXZHfgqJy74%2B%2BA92XrtsId8DRSTQ8SAnt3n2t5C2wDT05872av2VhUa%2Bx12NlyhxlVFGp%2BiB%2FKdoZzzmES%2BsGY8lFeyrAUCRuXLCtXJiJd7itMwYtFcpRutm%2B%2B8K2N7aZWZB2Ztg8%2BSU%2BkHXGm3M%2FW0MdQN93%2FTfpKW28Epxiuo01f67%2FkRL4DUKmVx7z0ONq1OcYwAOas8LP%2FPIIZCB2XSSltgL82ncXe1SFYRfOVk6XQqoi9eqWd5d93oRzQ3wTgkjhkm%2FwGcHOSw%3D%3D#t=0.01", // Add a video URL if available
+  },
   // Add more projects here following the same structure
 
 
   // ... other projects ...
 ];
+
+
+ 
+
+
+
 
 
