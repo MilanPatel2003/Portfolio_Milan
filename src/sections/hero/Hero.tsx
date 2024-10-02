@@ -36,7 +36,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-start p-4 md:p-8">
+    <section className="flex flex-col items-center justify-start p-4 md:p-8 ">
       <div className="w-full flex flex-col md:flex-row items-center justify-center mb-8">
         <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] relative mt-28 md:mt-0">
           <Canvas>
@@ -51,8 +51,10 @@ export default function Hero() {
         </div>
         <div className="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0">
           <TypingAnimation
-            className="text-gray-500 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
-            text="Hey there! I'm Pixie, your friendly robot companion. My master and I are stranded in space, but while we're stuck, why not explore this portfolio? Dive into the creativity that powers our journey through the stars!"
+            // Updated className to include new styles
+            className="text-cyan-400 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text glow-effect"
+            // Updated text with emojis
+            text="Hey there! I'm Pixie, your friendly robot companion. 🤖 My master and I are stranded in space 🚀, but while we're stuck, why not explore this portfolio? Dive into the creativity that powers our journey through the stars! "
             duration={40}
           />
         </div>

@@ -121,3 +121,17 @@
   }
 }
 
+.glow-effect {
+  text-shadow: 0 0 3px #00e6e6, 0 0 7px #00e6e6, 0 0 10px #00e6e6;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 3px #00e6e6, 0 0 7px #00e6e6, 0 0 10px #00e6e6;
+  }
+  to {
+    text-shadow: 0 0 7px #00e6e6, 0 0 14px #00e6e6, 0 0 21px #00e6e6;
+  }
+}
+
