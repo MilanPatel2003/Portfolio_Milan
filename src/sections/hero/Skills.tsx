@@ -109,9 +109,9 @@ export default function App() {
   ];
 
   return (
-    <section>
+    <section className="mb-10">
          <span className="text-4xl text-gray-500 sm:text-4xl md:text-4xl lg:text-5xl font-thin mb-4">
-        <div className="flex justify-center p-8">
+        <div className="flex justify-center p-8 ">
           SKILLS
         </div>
       </span>

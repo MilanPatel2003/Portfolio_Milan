@@ -60,7 +60,8 @@ module.exports = {
   		animation: {
   			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
-  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear'
+  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+  			'gradient-x': 'gradient-x 15s ease infinite',
   		},
   		keyframes: {
   			orbit: {
@@ -89,6 +90,16 @@ module.exports = {
   				'100%': {
   					transform: 'translateZ(0) rotate(360deg)'
   				}
+  			},
+  			'gradient-x': {
+  				'0%, 100%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'left center',
+  				},
+  				'50%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'right center',
+  				},
   			}
   		}
   	}

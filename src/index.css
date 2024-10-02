@@ -102,3 +102,22 @@
   display: block;
   margin-right: 30px;
 }
+
+.animate-gradient-x {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #10b981);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x 3s ease infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
