@@ -15,7 +15,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects"  className={`w-full transition-all duration-1000 ${
+    <section id="projects" className={`w-full transition-all duration-1000 ${
         isProjectsBlurred ? "blur-sm" : "blur-none"
       }`}>
       <div className="space-y-12 w-full py-12">
@@ -28,7 +28,7 @@ const Projects = () => {
             </div>
           </div>
         </BlurFade>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto">
           {projectsData.map((project, id) => (
             <BlurFade
               key={project.title}

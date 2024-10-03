@@ -1,14 +1,16 @@
-import React, { useState, useRef, Suspense } from "react";
+import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random";
+import * as THREE from 'three';
 
-const StarBackground = (props: any) => {
-  const ref: any = useRef();
-  const [sphere] = useState(() => {
-    const positions = random.inSphere(new Float32Array(1000 * 3), { radius: 1.2 });
-    return Float32Array.from(positions).filter(n => !isNaN(n));
-  });
+const StarBackground = React.memo((props: any) => {
+  const ref = useRef<THREE.Points>(null);
+
+  const sphere = useMemo(() => {
+    const positions = random.inSphere(new Float32Array(5000), { radius: 1.2 });
+    return positions;
+  }, []);
 
   useFrame((_, delta) => {
     if (ref.current) {
@@ -30,14 +32,14 @@ const StarBackground = (props: any) => {
       </Points>
     </group>
   );
-};
+});
 
 const StarsCanvas: React.FC = () => (
   <div className="w-full h-auto fixed inset-0 z-[1]">
     <Canvas camera={{ position: [0, 0, 1] }}>
-      <Suspense fallback={null}>
+      <React.Suspense fallback={null}>
         <StarBackground />
-      </Suspense>
+      </React.Suspense>
     </Canvas>
   </div>
 );

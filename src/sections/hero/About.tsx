@@ -2,16 +2,16 @@ import HyperText from "@/components/ui/hyper-text";
 import ShimmerButton from "@/components/ui/shimmer-button";
 
 export default function About() {
+  
   return (
     <div className="bg-transparent text-white w-full flex flex-col justify-center items-center relative py-8">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       <div className="relative z-10 text-center max-w-3xl px-4">
         <HyperText
-          text="Milan"
+          text="Milan Patel"
           animateOnLoad={true}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-thin font-oxanium mb-4 mx-auto text-center animate-gradient-x"
         />
-      
         <h2 className="text-xl sm:text-2xl mb-6">
           I <span className="text-purple-400">Code</span> & Explore Tech 🚀
         </h2>
@@ -21,6 +21,7 @@ export default function About() {
           innovative solutions across the entire tech stack.
         </p>
         <div className="flex justify-center">
+          
           <ShimmerButton className="shadow-2xl">
             <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-gray-200 dark:from-white dark:to-slate-900/10 lg:text-lg">
               Contact Me

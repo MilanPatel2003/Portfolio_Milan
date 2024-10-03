@@ -1,135 +1,70 @@
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useMotionValue,
-  useVelocity,
-  useAnimationFrame,
-} from "framer-motion";
-import { wrap } from "@motionone/utils";
-import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-  FaJsSquare,
-  FaFigma,
-  FaDocker,
-  FaGithub,
-  FaAws,
-  FaPython,
-  FaJenkins,
-  FaVuejs,
-  FaPhp,
-} from "react-icons/fa"; // Example icons
-import { RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
-import {
-  SiGoland,
-  SiMongodb,
-  SiMongoose,
-  SiPostgresql,
-  SiPostman,
-  SiTypescript,
-} from "react-icons/si";
-import { TbBrandFramerMotion } from "react-icons/tb";
+import { motion } from 'framer-motion';
+import { FaReact, FaNodeJs, FaFigma, FaGithub, FaAws } from 'react-icons/fa';
+import { RiJavascriptFill, RiNextjsFill } from 'react-icons/ri';
+import { SiBootstrap, SiMongodb, SiMongoose, SiPostman, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { TbBrandFramerMotion } from 'react-icons/tb';
+import { SiThreedotjs } from 'react-icons/si';
+import { FaStar } from 'react-icons/fa';
 
-interface ParallaxProps {
-  children: React.ReactNode; // Accept React nodes instead of strings
-  baseVelocity: number;
-}
+const skills = [
+  { name: 'React', icon: <FaReact />, color: 'text-blue-500', proficiency: 5 },
+  { name: 'Node.js', icon: <FaNodeJs />, color: 'text-green-500', proficiency: 4 },
+  { name: 'JavaScript', icon: <RiJavascriptFill />, color: 'text-yellow-400', proficiency: 5 },
+  { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-600', proficiency: 4 },
+  { name: 'Next.js', icon: <RiNextjsFill />, color: 'text-white', proficiency: 3 },
+  { name: 'MongoDB', icon: <SiMongodb />, color: 'text-green-500', proficiency: 4 },
+  { name: 'Mongoose', icon: <SiMongoose />, color: 'text-red-500', proficiency: 4 },
+  { name: 'Figma', icon: <FaFigma />, color: 'text-purple-500', proficiency: 2 },
+  { name: 'GitHub', icon: <FaGithub />, color: 'text-gray-800', proficiency: 5 },
+  { name: 'AWS', icon: <FaAws />, color: 'text-orange-500', proficiency: 3 },
+  { name: 'Postman', icon: <SiPostman />, color: 'text-orange-500', proficiency: 4 },
+  { name: 'Framer Motion', icon: <TbBrandFramerMotion />, color: 'text-purple-600', proficiency: 5 },
+  { name: 'Three.js', icon: <SiThreedotjs />, color: 'text-white', proficiency: 4 },
+  { name: 'Tailwind', icon: <SiTailwindcss />, color: 'text-blue-500', proficiency: 5 },
+  { name: 'Bootstrap', icon: <SiBootstrap />, color: 'text-purple-500', proficiency: 5 },
+];
 
-function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
-
-  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
-
-  useAnimationFrame((_, delta) => {
-    const moveBy = baseVelocity * (delta / 1000) * velocityFactor.get();
-    baseX.set(baseX.get() + moveBy);
-  });
-
+export default function SkillsSection() {
   return (
-    <div className="parallax">
-      <motion.div className="scroller" style={{ x }}>
-        {Array.isArray(children) ? (
-          <>
-            {children.map((child, index) => (
-              <span key={index} className="icon">
-                {child}
-              </span>
-            ))}
-            {children.map((child, index) => (
-              <span key={`duplicate-${index}`} className="icon">
-                {child}
-              </span>
-            ))}
-          </>
-        ) : null}
+    <section className="mb-10 py-16 bg-transparent">
+      <h2 className="text-4xl text-gray-500 sm:text-4xl md:text-5xl lg:text-6xl font-thin mb-12 text-center">
+        SKILLS
+      </h2>
+      <motion.div 
+        className="max-w-6xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, staggerChildren: 0.1 }}
+      >
+        {skills.map((skill) => (
+          <motion.div
+            key={skill.name}
+            className="flex flex-col items-center justify-center p-4 rounded-lg bg-transparent shadow-md"
+            whileHover={{ scale: 1.1, zIndex: 1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.div 
+              className={`text-4xl sm:text-5xl md:text-6xl ${skill.color}`}
+              initial={{ rotateY: 0 }}
+              whileHover={{ rotateY: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              {skill.icon}
+            </motion.div>
+            <p className="mt-2 text-sm font-medium text-gray-600">{skill.name}</p>
+            <div className="flex mt-1">
+              {[...Array(5)].map((_, index) => (
+                <FaStar
+                  key={index}
+                  className={`w-3 h-3 ${
+                    index < skill.proficiency ? 'text-purple-400' : 'text-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
-    </div>
-  );
-}
-
-export default function App() {
-  const smSize = "text-2xl";
-  const mdSize = "md:text-4xl";
-  const lgSize = "lg:text-6xl";
-
-  const coloredIcons = [
-    <FaReact key="react" className={`text-blue-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaNodeJs key="nodejs" className={`text-green-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaFigma key="figma" className={`text-red-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaDocker key="docker" className={`text-blue-700 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaGithub key="github" className={`text-gray-800 ${smSize} ${mdSize} ${lgSize}`} />,
-    <RiNextjsFill key="nextjs" className={`text-black ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaAws key="aws" className={`text-yellow-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiTypescript key="typescript" className={`text-blue-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaPython key="python" className={`text-blue-600 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaJenkins key="jenkins" className={`text-red-600 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiPostman key="postman" className={`text-orange-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <RiJavascriptFill key="javascript" className={`text-yellow-400 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaVuejs key="vuejs" className={`text-green-400 ${smSize} ${mdSize} ${lgSize}`} />,
-    <TbBrandFramerMotion key="framer-motion" className={`text-blue-500 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiGoland key="goland" className={`text-blue-300 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaJsSquare key="javascript-square" className={`text-yellow-400 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaDatabase key="database" className={`text-blue-600 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiMongodb key="mongodb" className={`text-green-600 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiMongoose key="mongoose" className={`text-red-700 ${smSize} ${mdSize} ${lgSize}`} />,
-    <FaPhp key="php" className={`text-blue-400 ${smSize} ${mdSize} ${lgSize}`} />,
-    <SiPostgresql key="postgresql" className={`text-blue-500 ${smSize} ${mdSize} ${lgSize}`} />,
-  ];
-
-  return (
-    <section className="mb-10">
-         <span className="text-4xl text-gray-500 sm:text-4xl md:text-4xl lg:text-5xl font-thin mb-4">
-        <div className="flex justify-center p-8 ">
-          SKILLS
-        </div>
-      </span>
-
-      <ParallaxText baseVelocity={-5}>
-        {coloredIcons.map((icon, index) => (
-          <span key={`icon-${index}`} className="icon">
-            {icon}
-          </span>
-        ))}
-      </ParallaxText>
-      <ParallaxText baseVelocity={5}>
-        {coloredIcons.map((icon, index) => (
-          <span key={`icon-reverse-${index}`} className="icon">
-            {icon}
-          </span>
-        ))}
-      </ParallaxText>
     </section>
   );
 }
