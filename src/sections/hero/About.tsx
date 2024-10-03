@@ -7,7 +7,7 @@ export default function About() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       <div className="relative z-10 text-center max-w-3xl px-4">
         <HyperText
-          text="Milan Patel"
+          text="Milan"
           animateOnLoad={true}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-thin font-oxanium mb-4 mx-auto text-center animate-gradient-x"
         />
