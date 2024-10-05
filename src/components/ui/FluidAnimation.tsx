@@ -1,11 +1,26 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
 const FluidAnimation: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    // Check if the device supports touch events
+    const checkTouchSupport = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+
+    checkTouchSupport();
+    window.addEventListener('resize', checkTouchSupport);
+
+    return () => {
+      window.removeEventListener('resize', checkTouchSupport);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current || isTouchDevice) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -93,7 +108,11 @@ const FluidAnimation: React.FC = () => {
       window.removeEventListener('resize', handleResize);
       containerRef.current?.removeChild(renderer.domElement);
     };
-  }, []);
+  }, [isTouchDevice]);
+
+  if (isTouchDevice) {
+    return null; // Don't render anything for touch devices
+  }
 
   return <div ref={containerRef} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 10 }} />;
 };
