@@ -9,6 +9,7 @@ import Projects from "./sections/projects/Projects";
 import { motion } from "framer-motion"; // Add this import
 import Footer from './sections/footer/footer';
 import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
+import FluidAnimation from './components/ui/FluidAnimation';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,27 +36,29 @@ export default function App() {
       {isLoading ? (
         <SpaceLoadingScreen onLoadingComplete={handleLoadingComplete} />
       ) : (
-        <div className="min-h-screen w-full bg-slate-950 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgPattern})` }}>
-          <div className="relative">
-            <StarsCanvas />
+        <div 
+          className="min-h-screen w-full bg-slate-950 bg-no-repeat bg-cover relative overflow-hidden"
+          style={{
+            backgroundImage: `url(${bgPattern})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+          }}
+        >
+          <StarsCanvas />
+          <FluidAnimation />
+          <div className="relative z-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Navbar />
-              <motion.main // Change this from <main> to <motion.main> // Change this from <main> to <motion.main>
-                className="relative z-10"
-                initial={{ opacity: 0 }} // Add initial opacity
-                animate={{ opacity: 1 }} // Animate to full opacity
-                transition={{ duration: 0.5 }} // Set duration for the transition // Set duration for the transition
+              <motion.main
+                className="relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
               >
                 <Hero />
                 <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
                   <Experience />
                   <Projects />
-             
-                  {/* Add other sections here */}
-                  {/* <Banner /> */}
-                  {/* <About /> */}
-                  {/* <Experience /> */}
-
                 </div>
               </motion.main>
             </div>
@@ -63,7 +66,6 @@ export default function App() {
               <Footer />
             </div>
           </div>
-
         </div>
       )}
     </Router>
