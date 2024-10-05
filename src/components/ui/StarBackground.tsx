@@ -7,10 +7,7 @@ import * as THREE from 'three';
 const StarBackground = React.memo((props: any) => {
   const ref = useRef<THREE.Points>(null);
 
-  const sphere = useMemo(() => {
-    const positions = random.inSphere(new Float32Array(5000), { radius: 1.2 });
-    return positions;
-  }, []);
+  const sphere = useMemo(() => random.inSphere(new Float32Array(1000), { radius: 1.2 }), []);
 
   useFrame((_, delta) => {
     if (ref.current) {
@@ -34,7 +31,7 @@ const StarBackground = React.memo((props: any) => {
   );
 });
 
-const StarsCanvas: React.FC = () => (
+const StarsCanvas: React.FC = React.memo(() => (
   <div className="w-full h-auto fixed inset-0 z-[1]">
     <Canvas camera={{ position: [0, 0, 1] }}>
       <React.Suspense fallback={null}>
@@ -42,6 +39,6 @@ const StarsCanvas: React.FC = () => (
       </React.Suspense>
     </Canvas>
   </div>
-);
+));
 
 export default StarsCanvas;

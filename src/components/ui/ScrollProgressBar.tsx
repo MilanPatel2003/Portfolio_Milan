@@ -16,7 +16,7 @@ const ScrollProgressBar: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-green-500 origin-left z-50"
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 to-blue-500 origin-left z-50"
       style={{ 
         scaleX: scrollYProgress,
         opacity: isVisible ? 1 : 0,
@@ -26,4 +26,4 @@ const ScrollProgressBar: React.FC = () => {
   );
 };
 
-export default ScrollProgressBar;
+export default React.memo(ScrollProgressBar);

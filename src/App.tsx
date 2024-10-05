@@ -9,9 +9,9 @@ import Projects from "./sections/projects/Projects";
 import { motion } from "framer-motion"; // Add this import
 import Footer from './sections/footer/footer';
 import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
-import FluidAnimation from './components/ui/FluidAnimation';
 import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this import
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
+import CursorChanger from './components/ui/CursorChanger'; // Add this import
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,11 +36,10 @@ export default function App() {
   return (
     <>
       <ScrollbarCustomizer 
-        width="5px"
+        width="1px"
         trackColor="#1a202c"
         thumbGradient={[
           "rgba(59, 130, 246, 0.8)",  // Blue-400 with opacity
-          "rgba(34, 197, 94, 0.8)",  // green-500 with opacity
           "rgba(139, 92, 246, 0.8)",  // purple-500 with opacity
         ]}
       />
@@ -57,7 +56,6 @@ export default function App() {
             }}
           >
             <StarsCanvas />
-            <FluidAnimation />
             <ScrollProgressBar /> {/* Add this line */}
             <div className="relative z-20">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,6 +77,7 @@ export default function App() {
                 <Footer />
               </div>
             </div>
+            <CursorChanger /> {/* Add this line */}
           </div>
         )}
       </Router>

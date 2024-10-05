@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from "@/lib/utils";
 
 export interface OrbitingCirclesProps {
@@ -10,7 +11,7 @@ export interface OrbitingCirclesProps {
   path?: boolean;
 }
 
-export default function OrbitingCircles({
+const OrbitingCircles: React.FC<OrbitingCirclesProps> = ({
   className,
   children,
   reverse,
@@ -18,7 +19,7 @@ export default function OrbitingCircles({
   delay = 10,
   radius = 50,
   path = true,
-}: OrbitingCirclesProps) {
+}) => {
   return (
     <>
       {path && (
@@ -56,3 +57,5 @@ export default function OrbitingCircles({
     </>
   );
 }
+
+export default React.memo(OrbitingCircles);

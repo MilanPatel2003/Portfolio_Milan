@@ -29,4 +29,4 @@ const SpaceLoadingScreen: React.FC<SpaceLoadingScreenProps> = ({ onLoadingComple
   );
 };
 
-export default SpaceLoadingScreen;
+export default React.memo(SpaceLoadingScreen);
