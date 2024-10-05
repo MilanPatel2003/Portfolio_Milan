@@ -10,6 +10,8 @@ import { motion } from "framer-motion"; // Add this import
 import Footer from './sections/footer/footer';
 import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
 import FluidAnimation from './components/ui/FluidAnimation';
+import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this import
+import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,42 +34,54 @@ export default function App() {
   };
 
   return (
-    <Router>
-      {isLoading ? (
-        <SpaceLoadingScreen onLoadingComplete={handleLoadingComplete} />
-      ) : (
-        <div 
-          className="min-h-screen w-full bg-slate-950 bg-no-repeat bg-cover relative overflow-hidden"
-          style={{
-            backgroundImage: `url(${bgPattern})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-          }}
-        >
-          <StarsCanvas />
-          <FluidAnimation />
-          <div className="relative z-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <Navbar />
-              <motion.main
-                className="relative"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Hero />
-                <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
-                  <Experience />
-                  <Projects />
-                </div>
-              </motion.main>
-            </div>
-            <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
-              <Footer />
+    <>
+      <ScrollbarCustomizer 
+        width="5px"
+        trackColor="#1a202c"
+        thumbGradient={[
+          "rgba(59, 130, 246, 0.8)",  // Blue-400 with opacity
+          "rgba(34, 197, 94, 0.8)",  // green-500 with opacity
+          "rgba(139, 92, 246, 0.8)",  // purple-500 with opacity
+        ]}
+      />
+      <Router>
+        {isLoading ? (
+          <SpaceLoadingScreen onLoadingComplete={handleLoadingComplete} />
+        ) : (
+          <div 
+            className="min-h-screen w-full bg-slate-950 bg-no-repeat bg-cover relative overflow-hidden"
+            style={{
+              backgroundImage: `url(${bgPattern})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }}
+          >
+            <StarsCanvas />
+            <FluidAnimation />
+            <ScrollProgressBar /> {/* Add this line */}
+            <div className="relative z-20">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Navbar />
+                <motion.main
+                  className="relative"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Hero />
+                  <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
+                    <Experience />
+                    <Projects />
+                  </div>
+                </motion.main>
+              </div>
+              <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
+                <Footer />
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </Router>
+        )}
+      </Router>
+    </>
   );
 }
