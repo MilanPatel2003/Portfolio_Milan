@@ -127,6 +127,24 @@
   }
 }
 
+.animate-gradient-x2 {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #5352ad);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x2 7s ease infinite;
+}
+
+@keyframes gradient-x2 {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .glow-effect {
   text-shadow: 0 0 3px #00e6e6, 0 0 7px #00e6e6, 0 0 10px #00e6e6;
   animation: glow 1.5s ease-in-out infinite alternate;

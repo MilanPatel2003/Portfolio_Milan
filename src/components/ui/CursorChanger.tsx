@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DragHandleDots2Icon } from '@radix-ui/react-icons';
 
@@ -9,7 +9,7 @@ import crosshairCursor from '@/assets/img/cursor2.png';
 import TachyonBeam from '@/assets/img/cursor3.png';
 import GravitonPulse from '@/assets/img/cursor4.png';
 
-// ... import other cursor images as needed
+import clickSound from '@/assets/mp3/button-click2.wav';
 
 const cursorOptions = [
   { name: 'Quantum Pointer', value: defaultCursor },
@@ -23,6 +23,11 @@ const CursorChanger: React.FC = React.memo(() => {
   const [currentCursor, setCurrentCursor] = useState(defaultCursor);
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio(clickSound);
+  }, []);
 
   useEffect(() => {
     const style = document.createElement('style');
@@ -42,16 +47,25 @@ const CursorChanger: React.FC = React.memo(() => {
     };
   }, [currentCursor]);
 
+  const playClickSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
+
   const handleCursorChange = useCallback((newCursor: string) => {
     setCurrentCursor(newCursor);
     setIsOpen(false);
+    playClickSound();
   }, []);
 
   const containerVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -20, scale: 0.9 },
     visible: { 
       opacity: 1, 
       y: 0,
+      scale: 1,
       transition: {
         type: "spring",
         stiffness: 300,
@@ -59,20 +73,34 @@ const CursorChanger: React.FC = React.memo(() => {
         staggerChildren: 0.1
       }
     },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } }
+    exit: { opacity: 0, y: -20, scale: 0.9, transition: { duration: 0.2 } }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
-    hover: { scale: 1.05, x: 10, transition: { type: "spring", stiffness: 400, damping: 10 } }
+    hidden: { opacity: 0, x: -20, scale: 0.8 },
+    visible: { opacity: 1, x: 0, scale: 1 },
+    hover: { 
+      scale: 1.05, 
+      x: 10, 
+      transition: { type: "spring", stiffness: 400, damping: 10 }
+    }
   };
 
   const buttonVariants = {
     hover: { 
       scale: 1.1,
+      rotate: [0, -5, 5, -5, 0],
       boxShadow: '0 0 20px rgb(6 182 212 / 80%)',
-      transition: { type: "spring", stiffness: 400, damping: 10 }
+      transition: { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 10,
+        rotate: {
+          duration: 0.5,
+          yoyo: Infinity,
+          ease: "easeInOut"
+        }
+      }
     },
     tap: { scale: 0.9 }
   };
@@ -85,7 +113,9 @@ const CursorChanger: React.FC = React.memo(() => {
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
         className="bg-black/80 border-2 border-cyan-500 rounded-full p-3 shadow-lg shadow-cyan-500/50 transition-all duration-300"
       >
         <DragHandleDots2Icon className="w-6 h-6 text-cyan-400" />

@@ -1,5 +1,9 @@
 import { FaGlobe, FaGithub } from "react-icons/fa";
-
+import tawkistVideo from "../assets/video/TawkistVideo.mp4";
+import threejsVideo from "../assets/video/3davatar.mp4";
+import tindogVideo from "../assets/video/tindog_demo.mp4";
+import akashTravelVideo from "../assets/video/akashTravel.mp4";
+import portfolioImage from "../assets/img/portfolio.png";
 export const experienceData = [
   {
     company: "Codefencers Pvt. Ltd.",
@@ -53,7 +57,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video:  "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbc278a0ba2d5d631c855c/final_66fbc26b46d1c4540cae0887_301979.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727804347&Signature=JGZ1QmIKIEeDyg9%2BLyB6psiwyRAxE9uDN46jc3yys8sv4VFCHwOkZPCLgSar2oCiqDbKLkWBqnZbExToTfHxsXiVHAXzMBg5G0SYW7SMhQ%2B0amou6rx16mezxjlDxWGjGV5Km0p3tw9L1bB9Rltjme9mFnw1nkjN%2FMKyBAhpJdlXbd2eyIagNWaPG51zDAK9kJuxWMCaUPPVg3JLNdEOuqwnBjdv2kwX8wUSbf%2BRJvD%2BF184PfbtHt%2FQOZ5ohF8mpxYKk0%2BfGi5W6LpXErUg8eM6TpGB%2BzPNlbM8AGBw7Ngu69PfW5dAc1Kk2ps%2Bq7XDYMLLFNjmTXVADzHoIFM%2B7A%3D%3D#t=0.01", // Add a video URL if available
+    video: tawkistVideo , // Add a video URL if available
   },
   {
     title: "Sci-Fi 3D Avatar Customization",
@@ -82,7 +86,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbd4048d09f2ba7a30a391/final_66fbd3ecd48c8cbd8e088ab1_424103.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727808664&Signature=gLINs28h3v%2B%2BHm7%2FvD1i133qpHTTzV5egfawjUq73BlzpBHRdPldYJw6HJih4Vd7OWoGdtbDJSnYv2s4WV4E1zFWKXNeXFzj5HLID4PS79Bqhqj8A8kYpdQ3evJR1OPlp5MMRAM9hHMbORbkqaS7vN1exgDB79e4z7DYAS2ZwX6xx3hzKHCEOU7Yu9hT%2F%2FskLOlDrJ4pQHNhQPRh3kTgjZFq4Qsv3pOko1E%2BUzExilcapKf6mSI9QNinFHSZMrxqdVi19PgycfonjAfe9j4YiFLP951hTxGYMmPhduoLo%2B%2BYgm7aWQ7VmNjYw%2BuJelUJQSE7NcHIJZZZkyE41ajcVg%3D%3D#t=0.01", // Add a video URL if available
+    video: threejsVideo, // Add a video URL if available
   },
   {
     title: "Portfolio Website",
@@ -108,8 +112,8 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fbcbc874b9f4924f5a685b/final_66fbcba1dc8801511ac6f912_306292.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727806556&Signature=dBk%2FRUsOoHnx%2BFsfsttAiyfeZ%2F4%2FqGBt4PdT62vaUShDUW32Povcru4cpMKGVTALYBDhRfFQx%2BUUboygY%2F70NJ0yxnxtucwEN5%2BYeB0VacHetIdLL1NK4TLFCxORh3eP7TirHikc1%2FGSZsGIBJxAcbC2G5HhWTCq9I4NJloCNs2lHUYqKQrhllAieyKcLmWQW8So4%2FVKjcqPuozcG49bMRMWu17dO6tKnVgraW5ykAcNVf1VR8FozHOVNIvo3beAbXFvnTCmkiPS9reO4m6qudVXVKCiXlNcu%2FG0vP7c90lFsHWYTuuxePM%2Brj9rEOPYB9b7kSmtspdDcKpmzUe7zw%3D%3D#t=0.01", // Add a video URL if available
+    image: portfolioImage, // Add an image URL if available
+    video: "", // Add a video URL if available
   },
 
   {
@@ -136,8 +140,8 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fc02427de6d041071b8012/final_66fc01f9d12b07ad4714e55a_565310.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727820496&Signature=Eo%2BoDbL%2FJRPwgX2Ou0gC0tjOfn97GK%2B3tncQG1kSeCZDc50p2%2BdzQL4nrA6WEk5q%2FjCrdJeZXZHfgqJy74%2B%2BA92XrtsId8DRSTQ8SAnt3n2t5C2wDT05872av2VhUa%2Bx12NlyhxlVFGp%2BiB%2FKdoZzzmES%2BsGY8lFeyrAUCRuXLCtXJiJd7itMwYtFcpRutm%2B%2B8K2N7aZWZB2Ztg8%2BSU%2BkHXGm3M%2FW0MdQN93%2FTfpKW28Epxiuo01f67%2FkRL4DUKmVx7z0ONq1OcYwAOas8LP%2FPIIZCB2XSSltgL82ncXe1SFYRfOVk6XQqoi9eqWd5d93oRzQ3wTgkjhkm%2FwGcHOSw%3D%3D#t=0.01", // Add a video URL if available
-  },
+    video: tindogVideo, // Add a video URL if available
+      },
 
   {
     title: "Akash Travel",
@@ -161,7 +165,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: "https://cdn-useast1.kapwing.com/teams/66fbc26a580eb79f946be376/jobs/66fc0f782930a8c6a1cc35b3/final_66fc0f59991107ee750d5631_308497.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1727823887&Signature=awMftnI6xmjdtH71Ulh3QdO%2BJ058STDFBm0ax%2FzBchcdwZIy7t8hIjFzM46bPerTwYVvPHOug97JyOWqqfJcbkETk9vOvf5MZ5pctPF8m1EIwn6ClPu5HK%2B3J9Yu7mO2gZ%2FNzDvTZ4wt6l3NDNPY%2BsNqdxKgnqiuIev7jIHlLbfu6E3f%2Foewhn3qmQfBLoixl%2FWS9yceLtq2S2cM%2BYNmBPGYYI2u7H86XAdav73Da42kNeG9AAxmGs6CBpp2FyqF8%2FcWENGp42Dvy%2FrZOFTr27yEkv100vFighhYmswk0e9IP%2Bj6PMN6%2FcXp0kLeTit8VfbWZ3HYT%2Bcwg%2FZ1FIPNJQ%3D%3D#t=0.01", // Add a video URL if available
+    video: akashTravelVideo, // Add a video URL if available
   },
   
   // Add more projects here following the same structure

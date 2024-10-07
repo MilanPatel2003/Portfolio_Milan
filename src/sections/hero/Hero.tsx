@@ -43,9 +43,9 @@ export default function Hero() {
 
   const memoizedTypingAnimation = useMemo(() => (
     <TypingAnimation
-      className="text-cyan-400 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
+      className="text-teal-400 animate-gradient-x2 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
       text={pixieText}
-      duration={40}
+      duration={30}
     />
   ), []);
 
