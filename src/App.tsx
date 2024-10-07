@@ -37,11 +37,11 @@ export default function App() {
   return (
     <>
       <ScrollbarCustomizer 
-        width="1px"
+        width="6px"  // Increased from 1px for better visibility
         trackColor="#1a202c"
         thumbGradient={[
-          "rgba(59, 130, 246, 0.8)",  // Blue-400 with opacity
-          "rgba(139, 92, 246, 0.8)",  // purple-500 with opacity
+          "rgba(30, 64, 175, 0.8)",  // Dark blue (blue-800) with opacity
+          "rgba(59, 130, 246, 0.8)",  // Original blue-400 with opacity
         ]}
       />
       <Router>
@@ -71,7 +71,11 @@ export default function App() {
                   <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
                     <Experience />
                     <Projects />
-                    <GitHubContributions/> {/* Add this line */}
+                    <div className="py-12">
+                      <GitHubContributions 
+                        username="MilanPatel2003"
+                      />
+                    </div>
                   </div>
                 </motion.main>
               </div>

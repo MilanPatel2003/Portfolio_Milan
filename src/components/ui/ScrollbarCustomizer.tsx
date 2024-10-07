@@ -16,6 +16,7 @@ const ScrollbarCustomizer: React.FC<ScrollbarCustomizerProps> = ({
     const gradientCSS = `linear-gradient(to bottom, ${thumbGradient.join(', ')})`;
 
     style.textContent = `
+      /* Webkit browsers (Chrome, Safari) */
       ::-webkit-scrollbar {
         width: ${width};
       }
@@ -24,11 +25,28 @@ const ScrollbarCustomizer: React.FC<ScrollbarCustomizerProps> = ({
       }
       ::-webkit-scrollbar-thumb {
         background: ${gradientCSS};
-        border-radius: 5px;
+        border-radius: 10px;
       }
       ::-webkit-scrollbar-thumb:hover {
         background: ${gradientCSS};
         filter: brightness(1.2);
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: ${thumbGradient[0]} ${trackColor};
+      }
+
+      /* For mobile devices */
+      @media (max-width: 768px) {
+        * {
+          scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+          width: 0px;
+          background: transparent;
+        }
       }
     `;
 

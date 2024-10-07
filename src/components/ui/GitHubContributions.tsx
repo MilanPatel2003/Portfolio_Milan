@@ -1,83 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import GitHubCalendar from 'react-github-calendar';
+import { motion } from 'framer-motion';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import BlurFade from "@/components/ui/blur-fade";
 
-interface Contribution {
-  date: string;
-  count: number;
-}
+const GitHubContributions = ({ username }: { username: string }) => {
+  const [timeRange, setTimeRange] = useState<'month' | 'halfYear' | 'year'>('year');
 
-const GitHubContributions: React.FC = () => {
-  const [contributions, setContributions] = useState<Contribution[]>([]);
-  const [totalContributions, setTotalContributions] = useState(0);
+  const getLastMonthsDate = (months: number) => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - months);
+    return date;
+  };
 
-  useEffect(() => {
-    const fetchContributions = async () => {
-      try {
-        const response = await axios.get('https://api.github.com/users/MilanPatel2003/events/public');
-        const events = response.data;
+  const buttonVariants = {
+    inactive: { scale: 1.0, opacity: 0.7 },
+    active: { scale: 1.0, opacity: 1 },
+  };
 
-        const contributionMap = new Map<string, number>();
-        let total = 0;
-
-        events.forEach((event: any) => {
-          if (event.type === 'PushEvent') {
-            const date = event.created_at.split('T')[0];
-            const count = event.payload.commits.length;
-            contributionMap.set(date, (contributionMap.get(date) || 0) + count);
-            total += count;
-          }
-        });
-
-        const sortedContributions = Array.from(contributionMap.entries())
-          .map(([date, count]) => ({ date, count }))
-          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-        setContributions(sortedContributions);
-        setTotalContributions(total);
-      } catch (error) {
-        console.error('Error fetching GitHub contributions:', error);
-      }
-    };
-
-    fetchContributions();
-  }, []);
-
-  const getContributionColor = (count: number) => {
-    if (count === 0) return 'bg-gray-800';
-    if (count < 5) return 'bg-green-900';
-    if (count < 10) return 'bg-green-700';
-    if (count < 15) return 'bg-green-500';
-    return 'bg-green-300';
+  const getLabelText = () => {
+    switch (timeRange) {
+      case 'month':
+        return '{{count}} contributions in the last month';
+      case 'halfYear':
+        return '{{count}} contributions in the last 6 months';
+      case 'year':
+      default:
+        return '{{count}} contributions in the last year';
+    }
   };
 
   return (
-    <div className="my-8 bg-gray-900 p-4 rounded-lg">
-      <h2 className="text-xl font-semibold mb-4 text-white">{totalContributions} contributions in the last 30 days</h2>
-      <div className="flex flex-col gap-1">
-        {contributions.map((contribution, index) => (
-          <div key={index} className="flex gap-1">
-            <div
-              className={`w-3 h-3 rounded-sm ${getContributionColor(contribution.count)}`}
-              title={`${contribution.date}: ${contribution.count} contributions`}
-            ></div>
+    <BlurFade delay={0.1}>
+      <Card className="w-full bg-black/30 backdrop-filter backdrop-blur-lg border border-cyan-500/30 text-white rounded-xl overflow-hidden">
+        <CardHeader className="border-b border-green-500/30">
+          <CardTitle className="text-2xl font-thin text-green-300">GitHub Contributions</CardTitle>
+        </CardHeader>
+        <CardContent className="p-4">
+          <div className="flex justify-center gap-2 mb-4">
+            {['month', 'halfYear', 'year'].map((range) => (
+              <motion.button
+                key={range}
+                variants={buttonVariants}
+                initial="inactive"
+                animate={timeRange === range ? "active" : "inactive"}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setTimeRange(range as 'month' | 'halfYear' | 'year')}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                  timeRange === range
+                    ? 'bg-green-500 text-black'
+                    : 'bg-cyan-900/50 text-green-300 hover:bg-cyan-800/50'
+                }`}
+              >
+                {range === 'month' ? 'Last Month' : range === 'halfYear' ? 'Last 6 Months' : 'Last Year'}
+              </motion.button>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-2 text-sm text-gray-400">
-        {totalContributions} contributions in the last 30 days
-      </div>
-      <div className="mt-2 flex items-center text-sm text-gray-400">
-        <span className="mr-2">Less</span>
-        <div className="flex space-x-1">
-          <div className="w-3 h-3 bg-gray-800"></div>
-          <div className="w-3 h-3 bg-green-900"></div>
-          <div className="w-3 h-3 bg-green-700"></div>
-          <div className="w-3 h-3 bg-green-500"></div>
-          <div className="w-3 h-3 bg-green-300"></div>
-        </div>
-        <span className="ml-2">More</span>
-      </div>
-    </div>
+          <TooltipProvider>
+            <GitHubCalendar
+              username={username}
+              year="last"
+              transformData={(contributions) => {
+                const lastDate = new Date();
+                const startDate = timeRange === 'month' 
+                  ? getLastMonthsDate(1) 
+                  : timeRange === 'halfYear' 
+                    ? getLastMonthsDate(6) 
+                    : getLastMonthsDate(12);
+                
+                return contributions.filter(day => {
+                  const date = new Date(day.date);
+                  return date >= startDate && date <= lastDate;
+                });
+              }}
+              style={{
+                margin: 'auto',
+              }}
+              theme={{
+                dark: ['#1e1e1e', '#003820', '#00592f', '#00854a', '#00b366'],
+                light: ['#1e1e1e', '#003820', '#00592f', '#00854a', '#00b366'],
+              }}
+              labels={{
+                months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                totalCount: getLabelText(),
+              }}
+              colorScheme="dark"
+              fontSize={12}
+              blockSize={12}
+              blockMargin={4}
+              renderBlock={(block, activity) => (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    {block}
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-black/80 border border-cyan-500/50 text-cyan-300">
+                    <p>{activity.count} contributions on {activity.date}</p>
+                  </TooltipContent>
+                </Tooltip>
+              )}
+            />
+          </TooltipProvider>
+        </CardContent>
+      </Card>
+    </BlurFade>
   );
 };
 
