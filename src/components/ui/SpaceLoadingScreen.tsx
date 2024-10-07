@@ -12,7 +12,6 @@ const SpaceLoadingScreen: React.FC<SpaceLoadingScreenProps> = ({ onLoadingComple
       setProgress((prevProgress) => {
         if (prevProgress >= 100) {
           clearInterval(timer);
-          onLoadingComplete();
           return 100;
         }
         return prevProgress + 10;
@@ -20,7 +19,13 @@ const SpaceLoadingScreen: React.FC<SpaceLoadingScreenProps> = ({ onLoadingComple
     }, 200);
 
     return () => clearInterval(timer);
-  }, [onLoadingComplete]);
+  }, []);
+
+  useEffect(() => {
+    if (progress === 100) {
+      onLoadingComplete();
+    }
+  }, [progress, onLoadingComplete]);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
