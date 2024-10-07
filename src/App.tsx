@@ -12,6 +12,7 @@ import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
 import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this import
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
 import CursorChanger from './components/ui/CursorChanger'; // Add this import
+import GitHubContributions from './components/ui/GitHubContributions';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +71,7 @@ export default function App() {
                   <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
                     <Experience />
                     <Projects />
+                    <GitHubContributions/> {/* Add this line */}
                   </div>
                 </motion.main>
               </div>
