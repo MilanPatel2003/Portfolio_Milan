@@ -174,8 +174,26 @@ export const projectsData = [
   // ... other projects ...
 ];
 
+export const certificateData = [
+  {
+    title: "The Complete 2024 Web Development Bootcamp",
+    description: "Comprehensive course covering HTML, CSS, JavaScript, React, Node.js, and more.",
+    imageUrl: "https://udemy-certificate.s3.amazonaws.com/image/UC-26baac76-9708-432b-9fea-2c0f5741721e.jpg",
+  },
+  {
+    title: "Web Development Fundamentals",
+    description: "Completed a comprehensive course on HTML, CSS, and JavaScript basics.",
+    imageUrl: "https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/068/413/822/KZA1qL8r0zl8lMrnzepakDXbM/90ef62ec431439a795086767aedabf944d6a0bcf.png",
+  },
 
- 
+  {
+    title: "Node.js and Express.js Full Course",
+    description: "Comprehensive course on building scalable web applications with Node.js and Express.js, including RESTful API development and database integration.",
+    imageUrl: "https://www.shutterstock.com/shutterstock/photos/291168731/display_1500/stock-vector-certificate-of-recognition-formal-style-design-editable-clip-art-291168731.jpg",
+  },
+
+  // Add more certificates as needed
+];
 
 
 

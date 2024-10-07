@@ -13,6 +13,8 @@ import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this i
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
 import CursorChanger from './components/ui/CursorChanger'; // Add this import
 import GitHubContributions from './components/ui/GitHubContributions';
+import { certificateData } from './portfolioData.ts/data';
+import { CertificateScroll } from './sections/certificates/CertificateScroll';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,8 +42,8 @@ export default function App() {
         width="6px"  // Increased from 1px for better visibility
         trackColor="#1a202c"
         thumbGradient={[
-          "rgba(30, 64, 175, 0.8)",  // Dark blue (blue-800) with opacity
-          "rgba(59, 130, 246, 0.8)",  // Original blue-400 with opacity
+          "rgba(38, 38, 38, 0.8)",  // Dark gray
+          "rgba(58, 58, 58, 0.8)",  // Slightly lighter gray
         ]}
       />
       <Router>
@@ -76,6 +78,9 @@ export default function App() {
                         username="MilanPatel2003"
                       />
                     </div>
+                  
+                      <CertificateScroll content={certificateData} />
+                 
                   </div>
                 </motion.main>
               </div>
