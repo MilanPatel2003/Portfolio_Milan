@@ -9,4 +9,18 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: ['**/*.fbx'],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    },
+  },
+  server: {
+    open: true,
+    host: true,
+  },
 })

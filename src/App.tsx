@@ -15,6 +15,7 @@ import CursorChanger from './components/ui/CursorChanger'; // Add this import
 import GitHubContributions from './components/ui/GitHubContributions';
 import { certificateData } from './portfolioData.ts/data';
 import { CertificateScroll } from './sections/certificates/CertificateScroll';
+import CharacterSpotlight from './sections/avatar/CharacterSpotlight';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -80,10 +81,14 @@ export default function App() {
                     </div>
                   
                       <CertificateScroll content={certificateData} />
-                 
+
                   </div>
+
                 </motion.main>
+
               </div>
+              <CharacterSpotlight />
+
               <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
                 <Footer />
               </div>

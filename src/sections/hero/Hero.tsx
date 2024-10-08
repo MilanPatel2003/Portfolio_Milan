@@ -50,9 +50,9 @@ export default function Hero() {
   ), []);
 
   return (
-    <section className="flex flex-col items-center justify-start p-4 md:p-8">
-      <div className="w-full flex flex-col md:flex-row items-center justify-center mb-8">
-        <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] relative mt-28 md:mt-0">
+    <section className="flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center mb-8">
+        <div className="w-full lg:w-1/2 h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[500px] relative mt-16 sm:mt-20 lg:mt-0">
           <Canvas
             gl={{ antialias: false, powerPreference: "high-performance" }}
             dpr={[1, 2]}
@@ -68,7 +68,7 @@ export default function Hero() {
             <OrbitingSkills />
           </div>
         </div>
-        <div className="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0">
+        <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
           {memoizedTypingAnimation}
         </div>
       </div>
