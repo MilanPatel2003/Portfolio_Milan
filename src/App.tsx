@@ -1,103 +1,90 @@
-import { useState, useEffect } from 'react';
+import  { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StarsCanvas from "./components/ui/StarBackground";
-import bgPattern from "./assets/img/bg_pattern.png"; // Import the image
 import Navbar from "./sections/navbar/Navbar";
-import Hero from "./sections/hero/Hero";
-import Experience from '@/sections/experience/Experience'; // Add this import
-import Projects from "./sections/projects/Projects";
 import { motion } from "framer-motion"; // Add this import
 import Footer from './sections/footer/footer';
-import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
 import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this import
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
 import CursorChanger from './components/ui/CursorChanger'; // Add this import
-import GitHubContributions from './components/ui/GitHubContributions';
 import { certificateData } from './portfolioData.ts/data';
-import { CertificateScroll } from './sections/certificates/CertificateScroll';
-import CharacterSpotlight from './sections/avatar/CharacterSpotlight';
+import LoadingSpinner from './components/ui/LoadingSpinner'; // Add this import
+import { LoadingProvider, useLoading } from './hooks/LoadingContext'; // Add this import
+import bgpattern from './assets/img/bg_pattern.webp';
+const Hero = lazy(() => import('./sections/hero/Hero'));
+const Experience = lazy(() => import('./sections/experience/Experience'));
+const Projects = lazy(() => import('./sections/projects/Projects'));
+const GitHubContributions = lazy(() => import('./components/ui/GitHubContributions'));
+const CertificateScroll = lazy(() => import('./sections/certificates/CertificateScroll'));
+const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 
-export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isContentBlurred, setIsContentBlurred] = useState(true);
-  const pixieText = "Hey there! I'm Pixie, your friendly robot companion. 🤖 My master and I are stranded in space 🚀, but while we're stuck, why not explore this portfolio? Dive into the creativity that powers our journey through the stars!";
-  const typingDuration = 20; // Changed from 40 to 20ms per character
-
-  useEffect(() => {
-    const totalDuration = pixieText.length * typingDuration;
-
-    const timer = setTimeout(() => {
-      setIsContentBlurred(false);
-    }, totalDuration);
-
-    return () => clearTimeout(timer);
-  }, [pixieText]);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
+function AppContent() {
+  const { isLoading } = useLoading();
 
   return (
     <>
       <ScrollbarCustomizer 
-        width="6px"  // Increased from 1px for better visibility
+        width="6px"
         trackColor="#1a202c"
         thumbGradient={[
-          "rgba(38, 38, 38, 0.8)",  // Dark gray
-          "rgba(58, 58, 58, 0.8)",  // Slightly lighter gray
+          "rgba(38, 38, 38, 0.8)",
+          "rgba(58, 58, 58, 0.8)",
         ]}
       />
-      <Router>
-        {isLoading ? (
-          <SpaceLoadingScreen onLoadingComplete={handleLoadingComplete} />
-        ) : (
-          <div 
-            className="min-h-screen w-full bg-slate-950 bg-no-repeat bg-cover relative overflow-hidden"
-            style={{
-              backgroundImage: `url(${bgPattern})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-            }}
-          >
-            <StarsCanvas />
-            <ScrollProgressBar /> {/* Add this line */}
-            <div className="relative z-20">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Navbar />
-                <motion.main
-                  className="relative"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Hero />
-                  <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
-                    <Experience />
-                    <Projects />
-                    <div className="py-12">
-                      <GitHubContributions 
-                        username="MilanPatel2003"
-                      />
-                    </div>
-                  
-                      <CertificateScroll content={certificateData} />
-
+      <div 
+        className="h-full w-full bg-zinc-950 bg-no-repeat relative overflow-hidden
+                   bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
+                   bg-top sm:bg-center"
+        style={{
+          backgroundImage: `url(${bgpattern})`,
+          backgroundRepeat: 'inherit',
+        }}
+      >
+        <StarsCanvas />
+        <ScrollProgressBar />
+        <div className="relative z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Navbar />
+            <motion.main
+              className="relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                <Hero />
+                <div>
+                  <Experience />
+                  <Projects />
+                  <div className="py-12">
+                    <GitHubContributions 
+                      username="MilanPatel2003"
+                    />
                   </div>
-
-                </motion.main>
-
-              </div>
-              <CharacterSpotlight />
-
-              <div className={`transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
-                <Footer />
-              </div>
-            </div>
-            <CursorChanger /> {/* Add this line */}
+                  <CertificateScroll content={certificateData} />
+                </div>
+                <CharacterSpotlight />
+              </Suspense>
+            </motion.main>
           </div>
-        )}
-      </Router>
+          <div>
+            <Footer />
+          </div>
+        </div>
+        <CursorChanger />
+       
+      </div>
+      {isLoading && <LoadingSpinner />}
     </>
   );
-  
+}
+
+export default function App() {
+  return (
+    <Router>
+      <LoadingProvider>
+        <AppContent />
+      </LoadingProvider>
+    </Router>
+  );
 }

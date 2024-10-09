@@ -1,36 +1,18 @@
 import BlurFade from "@/components/ui/blur-fade";
 import { ResumeCard } from "@/components/ui/resume-card";
 import { experienceData } from "@/portfolioData.ts/data";
-import { useEffect, useState } from "react";
 
 const BLUR_FADE_DELAY = 0.1;
 
 const Experience = () => {
-  const [iseExperienceBlurred, setiseExperienceBlurred] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setiseExperienceBlurred(false);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section
-      id="work"
-      className={`w-full transition-all duration-1000 ${
-        iseExperienceBlurred ? "blur-sm" : "blur-none"
-      }`}
-    >
+    <section id="work" className="w-full">
       <span className="text-4xl text-gray-500 sm:text-4xl md:text-4xl lg:text-5xl font-thin mb-4">
         <div className="flex justify-center">EXPERIENCE</div>
       </span>
 
-      <div className="flex flex-col gap-y-3">
-        <BlurFade delay={BLUR_FADE_DELAY * 5}>
-          <h2 className="text-xl font-bold">Work Experience</h2>
-        </BlurFade>
+      <div className="flex flex-col gap-y-3 mt-12">
+    
         {experienceData.map((work, id) => (
           <BlurFade
             key={work.company}

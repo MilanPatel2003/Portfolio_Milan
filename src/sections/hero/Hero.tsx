@@ -1,10 +1,12 @@
-import React, { useRef, useState, useEffect, Suspense, useMemo } from "react";
+import React, { useRef, useEffect, Suspense, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, useAnimations, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
+import {  useAnimations, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
 import TypingAnimation from "@/components/ui/typing-animation";
 import { OrbitingSkills } from "./orbit";
 import About from "./About";
 import Skills from "./Skills";
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 function Loader() {
   const { progress } = useProgress();
@@ -13,7 +15,7 @@ function Loader() {
 
 const Model = React.memo(function Model() {
   const group = useRef();
-  const { scene, animations } = useGLTF("/models/robot_playground.glb");
+  const { scene, animations } = useLoader(GLTFLoader, "/models/robot_playground.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -28,22 +30,11 @@ const Model = React.memo(function Model() {
 });
 
 export default function Hero() {
-  const [isContentBlurred, setIsContentBlurred] = useState(true);
   const pixieText = "Hey there! I'm Pixie, your friendly robot companion. 🤖 My master and I are stranded in space 🚀, but while we're stuck, why not explore this portfolio? Dive into the creativity that powers our journey through the stars!";
-
-  useEffect(() => {
-    const typingDuration = pixieText.length * 40; // 40ms per character
-
-    const timer = setTimeout(() => {
-      setIsContentBlurred(false);
-    }, typingDuration);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const memoizedTypingAnimation = useMemo(() => (
     <TypingAnimation
-      className="text-teal-400 animate-gradient-x2 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
+      className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
       text={pixieText}
       duration={30}
     />
@@ -72,7 +63,7 @@ export default function Hero() {
           {memoizedTypingAnimation}
         </div>
       </div>
-      <div className={`w-full transition-all duration-1000 ${isContentBlurred ? 'blur-sm' : 'blur-none'}`}>
+      <div className="w-full">
         <About />
         <Skills />
       </div>

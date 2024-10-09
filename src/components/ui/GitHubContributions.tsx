@@ -1,4 +1,5 @@
-import  { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLoading } from '@/hooks/LoadingContext';
 import GitHubCalendar from 'react-github-calendar';
 import { motion } from 'framer-motion';
 import {
@@ -10,7 +11,27 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import BlurFade from "@/components/ui/blur-fade";
 
-const GitHubContributions = ({ username }: { username: string }) => {
+const GitHubContributions: React.FC<{ username: string }> = ({ username }) => {
+  const [contributions, setContributions] = useState<any>(null);
+  const { setIsLoading } = useLoading();
+
+  useEffect(() => {
+    const fetchContributions = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/events`);
+        const data = await response.json();
+        setContributions(data);
+      } catch (error) {
+        console.error("Error fetching GitHub contributions:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchContributions();
+  }, [username, setIsLoading]);
+
   const [timeRange, setTimeRange] = useState<'month' | 'halfYear' | 'year'>('year');
 
   const getLastMonthsDate = (months: number) => {

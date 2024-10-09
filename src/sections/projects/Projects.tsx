@@ -1,23 +1,13 @@
 import BlurFade from "@/components/ui/blur-fade";
 import { ProjectCard } from "@/components/ui/project-card";
 import { projectsData } from "@/portfolioData.ts/data";
-import React, { useEffect, useState } from "react";
+import React from "react";
+
 const Projects = () => {
   const BLUR_FADE_DELAY = 0.04;
-  const [isProjectsBlurred, setisProjectsBlurred] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setisProjectsBlurred(false);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
-    <section id="projects" className={`w-full transition-all duration-1000 ${
-        isProjectsBlurred ? "blur-sm" : "blur-none"
-      }`}>
+    <section id="projects" className="w-full">
       <div className="space-y-12 w-full py-12">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <div className="flex flex-col items-center justify-center space-y-4 text-center">

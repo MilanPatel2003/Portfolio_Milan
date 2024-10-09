@@ -25,6 +25,7 @@ export const CertificateScroll: React.FC<CertificateScrollProps> = ({
   });
   const cardLength = content.length;
 
+
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardHeight = 1 / cardLength;
     const newActiveCard = Math.min(Math.floor(latest / cardHeight), cardLength - 1);
@@ -96,3 +97,5 @@ export const CertificateScroll: React.FC<CertificateScrollProps> = ({
     </section>
   );
 };
+
+export default CertificateScroll;

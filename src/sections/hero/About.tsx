@@ -29,9 +29,7 @@ export default function About() {
           </ShimmerButton>
         </div>
       </div>
-      <div className="absolute bottom-4 left-4 text-sm text-gray-400">
-        We Are Here!
-      </div>
+      
     </div>
   );
 }
