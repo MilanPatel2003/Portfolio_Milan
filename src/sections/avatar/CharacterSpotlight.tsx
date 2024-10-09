@@ -7,7 +7,7 @@ import { motion, useInView } from 'framer-motion';
 import GradualSpacing from '@/components/ui/gradual-spacing';
 import React from 'react';
 
-const Character = React.memo(({ animationUrl }: { animationUrl: string }) => {
+const Character = React.memo(({ animationUrl, isMobile }: { animationUrl: string, isMobile: boolean }) => {
   const fbx = useLoader(FBXLoader, '/models/Offensive Idle.fbx');
   const animationFbx = useLoader(FBXLoader, animationUrl);
   const mixerRef = useRef<AnimationMixer | null>(null);
@@ -31,10 +31,10 @@ const Character = React.memo(({ animationUrl }: { animationUrl: string }) => {
   useEffect(() => {
     if (fbx) {
       fbx.position.set(0, -2, 0);
-      fbx.scale.setScalar(1.7);
+      fbx.scale.setScalar(isMobile ? 2.5 : 1.7);
       fbx.rotation.y = Math.PI / 4;
     }
-  }, [fbx]);
+  }, [fbx, isMobile]);
 
   return <primitive object={fbx} />;
 });
@@ -108,28 +108,25 @@ const CharacterSpotlight = () => {
       </div>
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative">
         <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading...</div>}>
-          <Canvas shadows gl={{ alpha: true, antialias: false, powerPreference: 'low-power' }} className="!absolute inset-0">
-            <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+          <Canvas 
+            shadows 
+            gl={{ 
+              alpha: true, 
+              antialias: false, 
+              powerPreference: 'default',
+              precision: isMobile ? 'lowp' : 'highp'
+            }} 
+            className="!absolute inset-0"
+          >
+            <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 7 : 5]} fov={50} />
             <ambientLight intensity={0.5} />
             <directionalLight color="#ffffff" intensity={1} position={[5, 5, 5]} />
-            {!isMobile && <Character animationUrl={currentAnimation} />}
-            {isMobile && <SimplifiedCharacter />}
+            <Character animationUrl={currentAnimation} isMobile={isMobile} />
             <OrbitControls enableZoom={false} enablePan={false} />
           </Canvas>
         </Suspense>
       </div>
     </motion.div>
-  );
-};
-
-const SimplifiedCharacter = () => {
-  // Implement a simpler version of the character for mobile
-  // This could be a static image or a simplified 3D model
-  return (
-    <mesh>
-      <boxGeometry args={[1, 2, 1]} />
-      <meshStandardMaterial color="purple" />
-    </mesh>
   );
 };
 
