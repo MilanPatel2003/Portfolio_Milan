@@ -63,6 +63,8 @@ const CharacterSpotlight = () => {
     { name: 'Swimming', url: '/models/Swimming.fbx' },
     { name: 'Salsa Dancing', url: '/models/Salsa Dancing.fbx' },
     { name: 'Spell Casting', url: '/models/Spell Casting.fbx' },
+    { name: 'Spin In Place', url: '/models/Spin In Place.fbx' },
+    
   ], []);
 
   const handleAnimationChange = useCallback((url: string) => {
@@ -97,8 +99,8 @@ const CharacterSpotlight = () => {
               onClick={() => handleAnimationChange(anim.url)}
               className={`px-2 py-1 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full text-xs sm:text-sm lg:text-base transition-all ${
                 currentAnimation === anim.url
-                  ? 'bg-white text-purple-900 shadow-lg transform scale-105'
-                  : 'bg-purple-700 hover:bg-purple-600'
+                  ? 'bg-purple-600 text-white shadow-lg transform scale-105'
+                  : 'bg-purple-900 text-purple-200 hover:bg-purple-800 hover:text-white'
               }`}
             >
               {anim.name}

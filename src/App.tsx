@@ -30,7 +30,7 @@ function AppContent() {
         ]}
       />
       <div 
-        className="h-full w-full bg-zinc-950 bg-no-repeat relative overflow-hidden
+        className="h-full w-full bg-slate-950 bg-no-repeat relative overflow-hidden
                    bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
                    bg-top sm:bg-center"
         style={{
