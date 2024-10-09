@@ -6,46 +6,61 @@ Welcome to my personal portfolio website! 👋 This project showcases my skills,
 
 ## Table of Contents
 
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 - [Contact](#contact)
+
+## Live Demo
+
+Check out the live version of my portfolio: [Milan Patel's Portfolio](https://your-portfolio-url.com)
 
 ## Features
 
-- 🤖 Interactive 3D avatar using Three.js
-- 🎨 Animated UI components with Framer Motion
-- 📱 Responsive design for various screen sizes
-- 🎥 Project showcase with video demonstrations
-- 🛠️ Skills section with proficiency indicators
-- 📊 GitHub contributions calendar
-- 🏆 Certificate showcase
-- 🕺 Customizable character animations
+- 🤖 Interactive 3D avatar using Three.js with customizable animations
+- 🎨 Animated UI components with Framer Motion for smooth transitions
+- 📱 Fully responsive design, ensuring a great experience on all devices
+- 🎥 Project showcase with video demonstrations and detailed descriptions
+- 🛠️ Skills section with proficiency indicators and orbiting skill icons
+- 📊 Dynamic GitHub contributions calendar
+- 🏆 Certificate showcase with scrollable gallery
+- 🌟 Starry background effect for an immersive experience
+- 🖱️ Custom cursor and scrollbar for enhanced user interaction
 
 ## Technologies Used
 
-- ⚛️ React
-- 🏷️ TypeScript
-- ⚡ Vite
-- 🌐 Three.js
-- 🎭 Framer Motion
-- 🎨 Tailwind CSS
-- 🧊 React Three Fiber
-- 🔣 React Icons
-- 🧩 Shadcn UI components
+- React
+- TypeScript
+- Vite
+- Three.js
+- Framer Motion
+- Tailwind CSS
+- React Three Fiber
+- React Icons
+- Shadcn UI components
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
 
 ## Installation
 
 1. Clone the repository:
    ```
-   git clone https://github.com/MilanPatel2003/Portfolio_Milan.git
+   git clone https://github.com/MilanPatel2003/portfolio.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd Portfolio_Milan
+   cd portfolio
    ```
 
 3. Install dependencies:
@@ -87,15 +102,24 @@ The project structure is organized as follows:
 - `tailwind.config.js`: Tailwind CSS configuration
 - `tsconfig.json`: TypeScript configuration
 
+## Contributing
+
+While this is a personal portfolio, I'm open to suggestions and improvements! If you have any ideas or find any bugs, please open an issue or submit a pull request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
 ## Contact
 
 Milan Patel
-- 💼 LinkedIn: [Milan Patel](https://www.linkedin.com/in/milan-patel-37650330b/)
-- 🐙 GitHub: [MilanPatel2003](https://github.com/MilanPatel2003)
-- 🐦 Twitter: [@MILANPA30313563](https://twitter.com/MILANPA30313563)
-- 📧 Email: [your@email.com]
+- LinkedIn: [Milan Patel](https://www.linkedin.com/in/milan-patel-37650330b/)
+- GitHub: [MilanPatel2003](https://github.com/MilanPatel2003)
+- Twitter: [@MILANPA30313563](https://twitter.com/MILANPA30313563)
+- Email: [milanpatel6454@gmail.com]
 
-Feel free to reach out if you have any questions or would like to connect! 😊
+Feel free to reach out if you have any questions or would like to connect!
+
 
 ---
 
