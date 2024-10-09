@@ -1,17 +1,15 @@
-import { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StarsCanvas from "./components/ui/StarBackground";
 import Navbar from "./sections/navbar/Navbar";
-import { motion } from "framer-motion"; // Add this import
+import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
-import ScrollProgressBar from './components/ui/ScrollProgressBar'; // Add this import
-import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer"; // Add this import
-import CursorChanger from './components/ui/CursorChanger'; // Add this import
+import ScrollProgressBar from './components/ui/ScrollProgressBar';
+import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
+import CursorChanger from './components/ui/CursorChanger';
 import { certificateData } from './portfolioData.ts/data';
-import LoadingSpinner from './components/ui/LoadingSpinner'; // Add this import
-import { LoadingProvider, useLoading } from './hooks/LoadingContext'; // Add this import
+import LoadingSpinner from './components/ui/LoadingSpinner';
 import bgpattern from './assets/img/bg_pattern.webp';
-import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
@@ -21,22 +19,6 @@ const CertificateScroll = lazy(() => import('./sections/certificates/Certificate
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 
 function AppContent() {
-  const { isLoading: contextLoading, setIsLoading: setContextLoading } = useLoading();
-  const [initialLoading, setInitialLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setInitialLoading(false);
-      setContextLoading(false);
-    }, 3000); // Adjust this time as needed
-
-    return () => clearTimeout(timer);
-  }, [setContextLoading]);
-
-  if (initialLoading) {
-    return <SpaceLoadingScreen onLoadingComplete={() => setInitialLoading(false)} />;
-  }
-
   return (
     <>
       <ScrollbarCustomizer 
@@ -89,7 +71,6 @@ function AppContent() {
         </div>
         <CursorChanger />
       </div>
-      {contextLoading && <LoadingSpinner />}
     </>
   );
 }
@@ -97,9 +78,7 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
-      <LoadingProvider>
-        <AppContent />
-      </LoadingProvider>
+      <AppContent />
     </Router>
   );
 }

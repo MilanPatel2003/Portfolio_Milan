@@ -14,16 +14,18 @@ const SpaceLoadingScreen: React.FC<SpaceLoadingScreenProps> = ({ onLoadingComple
           clearInterval(timer);
           return 100;
         }
-        return prevProgress + 10;
+        return prevProgress + 1; // Slower increment
       });
-    }, 200);
+    }, 40); // Adjust this value to control the speed of the progress
 
     return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
     if (progress === 100) {
-      onLoadingComplete();
+      setTimeout(() => {
+        onLoadingComplete();
+      }, 500); // Add a small delay before completing
     }
   }, [progress, onLoadingComplete]);
 
