@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
@@ -43,6 +43,16 @@ const CharacterSpotlight = () => {
   const [currentAnimation, setCurrentAnimation] = useState('/models/Offensive Idle.fbx');
   const spotlightRef = useRef(null);
   const isInView = useInView(spotlightRef, { once: true, amount: 0.3 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust this breakpoint as needed
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const animations = useMemo(() => [
     { name: 'Idle', url: '/models/Offensive Idle.fbx' },
@@ -97,15 +107,29 @@ const CharacterSpotlight = () => {
         </div>
       </div>
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative">
-        <Canvas shadows gl={{ alpha: true }} className="!absolute inset-0">
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
-          <ambientLight intensity={0.5} />
-          <directionalLight color="#ffffff" intensity={1} position={[5, 5, 5]} />
-          <Character animationUrl={currentAnimation} />
-          <OrbitControls enableZoom={false} enablePan={false} />
-        </Canvas>
+        <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading...</div>}>
+          <Canvas shadows gl={{ alpha: true, antialias: false, powerPreference: 'low-power' }} className="!absolute inset-0">
+            <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+            <ambientLight intensity={0.5} />
+            <directionalLight color="#ffffff" intensity={1} position={[5, 5, 5]} />
+            {!isMobile && <Character animationUrl={currentAnimation} />}
+            {isMobile && <SimplifiedCharacter />}
+            <OrbitControls enableZoom={false} enablePan={false} />
+          </Canvas>
+        </Suspense>
       </div>
     </motion.div>
+  );
+};
+
+const SimplifiedCharacter = () => {
+  // Implement a simpler version of the character for mobile
+  // This could be a static image or a simplified 3D model
+  return (
+    <mesh>
+      <boxGeometry args={[1, 2, 1]} />
+      <meshStandardMaterial color="purple" />
+    </mesh>
   );
 };
 

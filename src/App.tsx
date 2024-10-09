@@ -1,4 +1,4 @@
-import  { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StarsCanvas from "./components/ui/StarBackground";
 import Navbar from "./sections/navbar/Navbar";
@@ -20,7 +20,7 @@ const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlig
 
 function AppContent() {
   return (
-    <>
+    <Suspense fallback={<LoadingSpinner />}>
       <ScrollbarCustomizer 
         width="6px"
         trackColor="#1a202c"
@@ -49,20 +49,16 @@ function AppContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Suspense fallback={<LoadingSpinner />}>
-                <Hero />
-                <div>
-                  <Experience />
-                  <Projects />
-                  <div className="py-12">
-                    <GitHubContributions 
-                      username="MilanPatel2003"
-                    />
-                  </div>
-                  <CertificateScroll content={certificateData} />
-                </div>
-                <CharacterSpotlight />
-              </Suspense>
+              <Hero />
+              <Experience />
+              <Projects />
+              <div className="py-12">
+                <GitHubContributions 
+                  username="MilanPatel2003"
+                />
+              </div>
+              <CertificateScroll content={certificateData} />
+              <CharacterSpotlight />
             </motion.main>
           </div>
           <div>
@@ -71,7 +67,7 @@ function AppContent() {
         </div>
         <CursorChanger />
       </div>
-    </>
+    </Suspense>
   );
 }
 
