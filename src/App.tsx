@@ -1,4 +1,4 @@
-import  { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StarsCanvas from "./components/ui/StarBackground";
 import Navbar from "./sections/navbar/Navbar";
@@ -11,6 +11,8 @@ import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner'; // Add this import
 import { LoadingProvider, useLoading } from './hooks/LoadingContext'; // Add this import
 import bgpattern from './assets/img/bg_pattern.webp';
+import SpaceLoadingScreen from './components/ui/SpaceLoadingScreen';
+
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
 const Projects = lazy(() => import('./sections/projects/Projects'));
@@ -19,7 +21,21 @@ const CertificateScroll = lazy(() => import('./sections/certificates/Certificate
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 
 function AppContent() {
-  const { isLoading } = useLoading();
+  const { isLoading: contextLoading, setIsLoading: setContextLoading } = useLoading();
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+      setContextLoading(false);
+    }, 3000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, [setContextLoading]);
+
+  if (initialLoading) {
+    return <SpaceLoadingScreen onLoadingComplete={() => setInitialLoading(false)} />;
+  }
 
   return (
     <>
@@ -72,9 +88,8 @@ function AppContent() {
           </div>
         </div>
         <CursorChanger />
-       
       </div>
-      {isLoading && <LoadingSpinner />}
+      {contextLoading && <LoadingSpinner />}
     </>
   );
 }

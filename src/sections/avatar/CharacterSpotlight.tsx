@@ -1,12 +1,13 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import { AnimationMixer, AnimationAction } from 'three';
 import { motion, useInView } from 'framer-motion';
 import GradualSpacing from '@/components/ui/gradual-spacing';
+import React from 'react';
 
-const Character = ({ animationUrl }: { animationUrl: string }) => {
+const Character = React.memo(({ animationUrl }: { animationUrl: string }) => {
   const fbx = useLoader(FBXLoader, '/models/Offensive Idle.fbx');
   const animationFbx = useLoader(FBXLoader, animationUrl);
   const mixerRef = useRef<AnimationMixer | null>(null);
@@ -36,14 +37,14 @@ const Character = ({ animationUrl }: { animationUrl: string }) => {
   }, [fbx]);
 
   return <primitive object={fbx} />;
-};
+});
 
 const CharacterSpotlight = () => {
   const [currentAnimation, setCurrentAnimation] = useState('/models/Offensive Idle.fbx');
   const spotlightRef = useRef(null);
   const isInView = useInView(spotlightRef, { once: true, amount: 0.3 });
 
-  const animations = [
+  const animations = useMemo(() => [
     { name: 'Idle', url: '/models/Offensive Idle.fbx' },
     { name: 'Gangnam Style', url: '/models/Gangnam Style.fbx' },
     { name: 'Jumping', url: '/models/Jumping.fbx' },
@@ -52,7 +53,11 @@ const CharacterSpotlight = () => {
     { name: 'Swimming', url: '/models/Swimming.fbx' },
     { name: 'Salsa Dancing', url: '/models/Salsa Dancing.fbx' },
     { name: 'Spell Casting', url: '/models/Spell Casting.fbx' },
-  ];
+  ], []);
+
+  const handleAnimationChange = useCallback((url: string) => {
+    setCurrentAnimation(url);
+  }, []);
 
   return (
     <motion.div 
@@ -79,7 +84,7 @@ const CharacterSpotlight = () => {
           {animations.map((anim) => (
             <button
               key={anim.name}
-              onClick={() => setCurrentAnimation(anim.url)}
+              onClick={() => handleAnimationChange(anim.url)}
               className={`px-2 py-1 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full text-xs sm:text-sm lg:text-base transition-all ${
                 currentAnimation === anim.url
                   ? 'bg-white text-purple-900 shadow-lg transform scale-105'
