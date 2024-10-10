@@ -1,5 +1,6 @@
 import HyperText from "@/components/ui/hyper-text";
 import ShimmerButton from "@/components/ui/shimmer-button";
+import WordRotate from "@/components/ui/word-rotate";
 
 export default function About() {
   
@@ -12,10 +13,15 @@ export default function About() {
           animateOnLoad={true}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-thin font-oxanium mb-4 mx-auto text-center animate-gradient-x"
         />
-        <h2 className="text-xl sm:text-2xl mb-6">
-          I <span className="text-purple-400">Code</span> & Explore Tech 🚀
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 whitespace-nowrap overflow-hidden">
+          <span className="inline-flex items-center">
+            I<WordRotate
+              className="text-purple-400 mx-4"
+              words={["Code", "Create", "Develop", "Innovate"]}
+            /> & Explore Tech 🚀
+          </span>
         </h2>
-        <p className="text-gray-300 text-sm sm:text-base mb-8"> 
+        <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8"> 
           Versatile Fullstack Developer with a passion for learning and
           exploring new technologies. Quick learner dedicated to crafting
           innovative solutions across the entire tech stack.

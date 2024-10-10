@@ -42,7 +42,7 @@ const GitHubContributions: React.FC<{ username: string }> = ({ username }) => {
     <BlurFade delay={0.1}>
       <Card className="w-full bg-black/30 backdrop-filter backdrop-blur-lg border border-cyan-500/30 text-white rounded-xl overflow-hidden">
         <CardHeader className="border-b border-green-500/30">
-          <CardTitle className="text-2xl font-thin text-green-300">GitHub Contributions</CardTitle>
+          <CardTitle className="text-2xl font-thin text-green-300 animate-pulse">GitHub Contributions</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
           <div className="flex justify-center gap-2 mb-4">
