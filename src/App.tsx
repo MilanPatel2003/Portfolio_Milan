@@ -1,10 +1,10 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
+import LocomotiveScroll from 'locomotive-scroll';
 import StarsCanvas from "./components/ui/StarBackground";
 import Navbar from "./sections/navbar/Navbar";
-import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
-import ScrollProgressBar from './components/ui/ScrollProgressBar';
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
 import CursorChanger from './components/ui/CursorChanger';
 import { certificateData } from './portfolioData.ts/data';
@@ -18,56 +18,118 @@ const GitHubContributions = lazy(() => import('./components/ui/GitHubContributio
 const CertificateScroll = lazy(() => import('./sections/certificates/CertificateScroll'));
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 
-function AppContent() {
+const useLocomotiveScroll = (start = true) => {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!start || !scrollRef.current) return;
+
+    const locomotive = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+      multiplier: 1,
+      class: 'is-revealed',
+      tablet: {
+        smooth: true,
+        breakpoint: 768,
+      },
+    });
+
+    locomotive.on('scroll', (event) => {
+      const progress = event.scroll.y / (document.body.scrollHeight - window.innerHeight);
+      document.documentElement.style.setProperty('--scroll', progress.toString());
+    });
+
+    return () => {
+      if (locomotive) locomotive.destroy();
+    };
+  }, [start]);
+
+  return scrollRef;
+};
+
+const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" });
+
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <ScrollbarCustomizer 
-        width="6px"
-        trackColor="#1a202c"
-        thumbGradient={[
-          "rgba(38, 38, 38, 0.8)",
-          "rgba(58, 58, 58, 0.8)",
-        ]}
-      />
-      <div 
-        className="h-full w-full bg-slate-950 bg-no-repeat relative overflow-hidden
-                   bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
-                   bg-top sm:bg-center"
-        style={{
-          backgroundImage: `url(${bgpattern})`,
-          backgroundRepeat: 'inherit',
-        }}
-      >
-        <StarsCanvas />
-        <ScrollProgressBar />
-        <div className="relative z-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Navbar />
-            <motion.main
-              className="relative"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Hero />
-              <Experience />
-              <Projects />
-              <div className="py-12">
-                <GitHubContributions 
-                  username="MilanPatel2003"
-                />
-              </div>
-              <CertificateScroll content={certificateData} />
-              <CharacterSpotlight />
-            </motion.main>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+      transition={{ duration: 0.8 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+function AppContent() {
+  const locomotiveScrollRef = useLocomotiveScroll();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <span ref={locomotiveScrollRef} data-scroll-container>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ScrollbarCustomizer 
+          width="8px"
+          trackColor="#1a202c"
+          thumbGradient={[
+            "rgba(38, 38, 38, 0.8)",
+            "rgba(58, 58, 58, 0.8)",
+          ]}
+        />
+        <div 
+          className="h-full w-full bg-slate-950 bg-no-repeat relative overflow-hidden
+                     bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
+                     bg-top sm:bg-center"
+          style={{
+            backgroundImage: `url(${bgpattern})`,
+            backgroundRepeat: 'inherit',
+          }}
+        >
+          <StarsCanvas />
+          <motion.div
+            className="fixed top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 to-purple-500 origin-left z-50"
+            style={{ scaleX }}
+          />
+          <div className="relative z-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <Navbar />
+              <FadeInSection>
+                <Hero />
+              </FadeInSection>
+              <FadeInSection>
+                <Experience />
+              </FadeInSection>
+              <FadeInSection>
+                <Projects />
+              </FadeInSection>
+              <FadeInSection>
+                <div className="py-12">
+                  <GitHubContributions username="MilanPatel2003" />
+                </div>
+              </FadeInSection>
+              <FadeInSection>
+                <CertificateScroll content={certificateData} />
+              </FadeInSection>
+              <FadeInSection>
+                <CharacterSpotlight />
+              </FadeInSection>
+            </div>
+            <FadeInSection>
+              <Footer />
+            </FadeInSection>
           </div>
-          <div>
-            <Footer />
-          </div>
+          <CursorChanger />
         </div>
-        <CursorChanger />
-      </div>
-    </Suspense>
+      </Suspense>
+    </span>
   );
 }
 
