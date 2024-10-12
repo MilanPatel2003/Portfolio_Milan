@@ -109,7 +109,9 @@ const CharacterSpotlight = () => {
         </div>
       </div>
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative">
-        <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading...</div>}>
+        <Suspense fallback={<div className="w-full h-full flex items-center justify-center">
+          <div className="loader"></div> {/* Tailwind loader */}
+        </div>}>
           <Canvas 
             shadows 
             gl={{ 
