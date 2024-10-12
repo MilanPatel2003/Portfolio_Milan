@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import BlurFade from "@/components/ui/blur-fade";
 import { FaChevronRight } from "react-icons/fa";
+import sound from "../../assets/mp3/button-click2.wav"
 
 interface CertificateContent {
   title: string;
@@ -28,10 +29,16 @@ export const CertificateScroll: React.FC<CertificateScrollProps> = ({
   });
   const cardLength = content.length;
 
+  const audio = new Audio(sound); // Add this line to create an audio instance
+
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardHeight = 1 / cardLength;
     const newActiveCard = Math.min(Math.floor(latest / cardHeight), cardLength - 1);
-    setActiveCard(newActiveCard);
+    
+    if (newActiveCard !== activeCard) { // Check if the active card has changed
+      setActiveCard(newActiveCard);
+      audio.play(); // Play the audio only if the active card changes
+    }
   });
 
   const backgroundColors = [
