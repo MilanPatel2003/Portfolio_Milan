@@ -33,11 +33,19 @@ function AppContent() {
         className="h-full w-full bg-slate-950 bg-no-repeat relative overflow-hidden
                    bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
                    bg-top sm:bg-center"
-        style={{
-          backgroundImage: `url(${bgpattern})`,
-          backgroundRepeat: 'inherit',
-        }}
       >
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          style={{
+            backgroundImage: `url(${bgpattern})`,
+            backgroundRepeat: 'inherit',
+            backgroundSize: 'inherit',
+            backgroundPosition: 'inherit',
+          }}
+        />
         <StarsCanvas />
         <ScrollProgressBar />
         <div className="relative z-20">
