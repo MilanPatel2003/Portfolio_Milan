@@ -6,6 +6,7 @@ import akashTravelVideo from "../assets/video/akashTravel.mp4";
 import portfolioImage from "../assets/img/portfolio.png";
 import tatacyber from  "../assets/img/certificates/tatacyber.png"
 import cisco from  "../assets/img/certificates/cisco.png"
+import logicledger from "../assets/video/logic_ledger_final.mp4"
 
 export const experienceData = [
   {
@@ -27,6 +28,36 @@ export const experienceData = [
 ];
 
 export const projectsData = [
+  {
+    title: "Logic Ledger AI MATHNOTES",
+    href: "https://logic-ledger.vercel.app/",
+    dates: "2024", // Update with the correct date if needed
+    active: true,
+    description:
+      "Created an AI-powered web app for solving mathematical equations, graphs, and geometric shapes through a digital drawing interface. Built with React, TypeScript, Node.js, and Gemini API(flash-1.5 model), LogicLedger features an interactive canvas, real-time problem analysis, and responsive design. Currently refining AI prompts to enhance accuracy for complex problems.",
+    technologies: [
+      "React",
+      "shadCN",
+      "Typescript",
+      "Tailwind",
+      "Node",
+      "Gemini-flash-1.5"
+    ],
+    links: [
+      {
+        type: "Website",
+        href: "https://logic-ledger.vercel.app/",
+        icon: FaGlobe as React.ElementType,
+      },
+      {
+        type: "source",
+        href: "https://github.com/MilanPatel2003/ai-calculator",
+        icon: FaGithub as React.ElementType,
+      },
+    ],
+    image: "", // Add an image URL if available
+    video: logicledger, // Add a video URL if available
+  },
 
   {
     title: "Tawkist - Real-Time Chat Application",
