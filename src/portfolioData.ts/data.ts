@@ -1,12 +1,11 @@
 import { FaGlobe, FaGithub } from "react-icons/fa";
-import tawkistVideo from "../assets/video/TawkistVideo.mp4";
-import threejsVideo from "../assets/video/3davatar.mp4";
-import tindogVideo from "../assets/video/tindog_demo.mp4";
-import akashTravelVideo from "../assets/video/akashTravel.mp4";
-import portfolioImage from "../assets/img/portfolio.png";
+import tawkistVideo from "/video/TawkistVideo.mp4";
+import threejsVideo from "/video/3davatar.mp4";
+import tindogVideo from "/video/tindog_demo.mp4";
+import akashTravelVideo from "/video/akashTravel.mp4";
 import tatacyber from  "../assets/img/certificates/tatacyber.png"
 import cisco from  "../assets/img/certificates/cisco.png"
-import logicledger from "../assets/video/logic_ledger_final.mp4"
+import logicledger from "/video/logic_ledger_final.mp4"
 
 export const experienceData = [
   {
@@ -122,33 +121,7 @@ export const projectsData = [
     image: "", // Add an image URL if available
     video: threejsVideo, // Add a video URL if available
   },
-  {
-    title: "Portfolio Website",
-    href: "https://milanpatel2003.github.io/My-portfolio/",
-    dates: "2024", // Update with the correct date if needed
-    active: true,
-    description:
-      "Designed and developed a personal portfolio website using vanilla HTML, CSS, and JavaScript. The site showcases my projects, skills, and experience in a clean, responsive layout. Implemented smooth scrolling, dynamic content loading, and interactive elements to enhance user experience.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-    ],
-    links: [
-      {
-        type: "Website",
-        href: "https://milanpatel2003.github.io/My-portfolio/",
-        icon: FaGlobe as React.ElementType,
-      },
-      {
-        type: "source",
-        href: "https://github.com/MilanPatel2003/My-portfolio",
-        icon: FaGithub as React.ElementType,
-      },
-    ],
-    image: portfolioImage, // Add an image URL if available
-    video: "", // Add a video URL if available
-  },
+
 
   {
     title: "Tin Dog - Bootstrap Practice Website",

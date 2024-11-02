@@ -9,7 +9,7 @@ import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
 import CursorChanger from './components/ui/CursorChanger';
 import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
-import bgpattern from './assets/img/bg_pattern.webp';
+import bgpattern from '/bg_pattern.webp';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
