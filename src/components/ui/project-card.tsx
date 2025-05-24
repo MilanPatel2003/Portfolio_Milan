@@ -9,6 +9,8 @@ import {
 import { cn } from "@/lib/utils";
 import Markdown from "react-markdown";
 import {Link} from "react-router-dom"
+import { FaPlay } from "react-icons/fa";
+
 interface Props {
   title: string;
   href?: string;
@@ -44,12 +46,13 @@ export function ProjectCard({
         "flex flex-col overflow-hidden border transition-all duration-300 ease-out h-full",
         "bg-white/10 backdrop-filter backdrop-blur-lg border-white/20",
         "hover:bg-white/20",
-        "text-white"
+        "text-white",
+        "cursor-pointer"
       )}
     >
       <Link
         to={href || "#"}
-        className={cn("block cursor-pointer", className)}
+        className={cn("block", className)}
       >
         {video && (
           <video
@@ -99,18 +102,28 @@ export function ProjectCard({
         )}
       </CardContent>
       <CardFooter className="px-4 pb-4">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, idx) => (
-              <Link to={link?.href} key={`${link.type}-${idx}`} target="_blank">
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
+        <div className="flex flex-row flex-wrap items-start gap-1">
+          {links && links.length > 0 && (
+            <>
+              {links?.map((link, idx) => (
+                <Link to={link?.href} key={`${link.type}-${idx}`} target="_blank">
+                  <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+                    {link.icon}
+                    {link.type}
+                  </Badge>
+                </Link>
+              ))}
+            </>
+          )}
+          {video && (
+            <Link to={video} target="_blank">
+              <Badge className="flex gap-2 px-2 py-1 text-[10px]">
+                <FaPlay className="w-3 h-3" />
+                Demo
+              </Badge>
+            </Link>
+          )}
+        </div>
       </CardFooter>
     </Card>
   );

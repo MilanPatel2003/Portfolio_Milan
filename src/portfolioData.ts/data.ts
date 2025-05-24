@@ -7,6 +7,32 @@ import tatacyber from  "../assets/img/certificates/tatacyber.png"
 import cisco from  "../assets/img/certificates/cisco.png"
 import logicledger from "/video/logic_ledger_final.mp4"
 
+export interface Project {
+  title: string;
+  url: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+}
+
+export const projects: Project[] = [
+  {
+    title: "PrepOnyx AI powered SaaS platform",
+    url: "https://preponyx.web.app/",
+    description: "Built an AI-driven SaaS platform with Firebase, React, and generative AI models (Google AI, OpenAI, LLaMA 3.0).",
+    technologies: ["React", "Node", "Firebase", "Langchain", "LLM models"],
+    features: [
+      "AI-powered mock interviews",
+      "Scribble-to-AI converter",
+      "Personalized course creation",
+      "PDF summarizer",
+      "Free credit system with Stripe/Razorpay integration",
+      "Frontend optimized with Tailwind CSS",
+      "Backend using Firestore and Cloud Functions for AI processing"
+    ]
+  }
+];
+
 export const experienceData = [
   {
     company: "Codefencers Pvt. Ltd.",
@@ -27,6 +53,67 @@ export const experienceData = [
 ];
 
 export const projectsData = [
+  {
+    title: "PrepOnyx AI powered SaaS platform",
+    href: "https://preponyx.web.app/",
+    dates: "2025",
+    active: true,
+    description: "Built an AI-driven SaaS platform with Firebase, React, and generative AI models (Google AI, OpenAI, LLaMA 3.0). Features include AI-powered mock interviews, a scribble-to-AI converter, personalized course creation, and a PDF summarizer. Integrated a free credit system with Stripe/Razorpay for seamless payments. Optimized frontend with Tailwind CSS and backend using Firestore and Cloud Functions for AI processing.",
+    technologies: [
+      "React",
+      "Node",
+      "Firebase",
+      "Langchain",
+      "LLM models",
+      "Tailwind CSS",
+      "Stripe/Razorpay"
+    ],
+    links: [
+      {
+        type: "Website",
+        href: "https://preponyx.web.app/",
+        icon: FaGlobe as React.ElementType,
+      },
+      {
+        type: "source",
+        href: "https://github.com/MilanPatel2003/preponyx",
+        icon: FaGithub as React.ElementType,
+      },
+    ],
+    image: "",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106878/prepOnyx-phase1-demo1-latest2_-_Made_with_Clipchamp_1_1_ysmkbl.mp4",
+  },
+  {
+    title: "Mini Ecom - Modern E-commerce Platform",
+    href: "https://github.com/yourusername/MINI-ECOM-REDUX-LEARN",
+    dates: "2024",
+    active: true,
+    description: "Developed a modern e-commerce platform using React, Redux Toolkit, and TypeScript. Features include a responsive product catalog with category filtering, real-time cart management, secure checkout process, and user authentication. Implemented a clean and intuitive UI using Shadcn UI components and Tailwind CSS. Integrated with a RESTful API for product data and implemented state management using Redux Toolkit for efficient data flow. Added features like product search, pagination, and a cart modal for enhanced user experience.",
+    technologies: [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "React Router",
+        "Axios"
+    ],
+    links: [
+        {
+            type: "Website",
+            href: "https://mini-ecom-redux-learn.vercel.app/",
+            icon: FaGlobe as React.ElementType,
+        },
+        {
+            type: "source",
+            href: "https://github.com/MilanPatel2003/MINI-ECOM-REDUX-LEARN",
+            icon: FaGithub as React.ElementType,
+        }
+    ],
+    image: "",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748115794/mini-ecom-demo-1748115548798_1_gxkpkt.mp4"
+},
+
   {
     title: "Logic Ledger AI MATHNOTES",
     href: "https://logic-ledger.vercel.app/",
@@ -55,7 +142,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: logicledger, // Add a video URL if available
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/logic_ledger_final_kaan2q.mp4", // Add a video URL if available
   },
 
   {
@@ -90,7 +177,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: tawkistVideo , // Add a video URL if available
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/TawkistVideo_exsq6b.mp4" , // Add a video URL if available
   },
   {
     title: "Sci-Fi 3D Avatar Customization",
@@ -119,7 +206,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: threejsVideo, // Add a video URL if available
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106710/3davatar_kuh0cd.mp4", // Add a video URL if available
   },
 
 
@@ -147,7 +234,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: tindogVideo, // Add a video URL if available
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/tindog_demo_mr6cpq.mp4", // Add a video URL if available
       },
 
   {
@@ -172,7 +259,7 @@ export const projectsData = [
       },
     ],
     image: "", // Add an image URL if available
-    video: akashTravelVideo, // Add a video URL if available
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/akashTravel_ldgbgy.mp4", // Add a video URL if available
   },
   
   // Add more projects here following the same structure
@@ -192,7 +279,7 @@ export const certificateData = [
     title: "Cisco Intro to Software Engineering Virtual Experience Program on Forage - October 2024",
     description: `Set up a React application and stitch together a series of reusable React components to create a dashboard frontend.
     Used WebSocket to connect to an external service and display packet latency.
-    Recorded a sprint review video showcasing the frontend features I’ve developed in React.`,
+    Recorded a sprint review video showcasing the frontend features I've developed in React.`,
     imageUrl: cisco 
   },
   {
