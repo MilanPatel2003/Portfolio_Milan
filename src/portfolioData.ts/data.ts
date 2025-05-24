@@ -1,11 +1,7 @@
 import { FaGlobe, FaGithub } from "react-icons/fa";
-import tawkistVideo from "/video/TawkistVideo.mp4";
-import threejsVideo from "/video/3davatar.mp4";
-import tindogVideo from "/video/tindog_demo.mp4";
-import akashTravelVideo from "/video/akashTravel.mp4";
+
 import tatacyber from  "../assets/img/certificates/tatacyber.png"
 import cisco from  "../assets/img/certificates/cisco.png"
-import logicledger from "/video/logic_ledger_final.mp4"
 
 export interface Project {
   title: string;
