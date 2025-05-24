@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
 import ScrollProgressBar from './components/ui/ScrollProgressBar';
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
-import CursorChanger from './components/ui/CursorChanger';
 import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import bgpattern from '/bg_pattern.webp';
@@ -73,7 +72,6 @@ function AppContent() {
             <Footer />
           </div>
         </div>
-        <CursorChanger />
       </div>
     </Suspense>
   );
