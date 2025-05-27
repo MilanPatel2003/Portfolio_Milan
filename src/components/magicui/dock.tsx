@@ -8,12 +8,10 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import React, { PropsWithChildren, useRef } from "react";
+
 import { cn } from "@/lib/utils";
-
-// Define an interface for icon data
-
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
@@ -46,7 +44,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref,
   ) => {
     const mouseX = useMotionValue(Infinity);
-
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {

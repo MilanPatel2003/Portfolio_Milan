@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StarsCanvas from "./components/ui/StarBackground";
-import Navbar from "./sections/navbar/Navbar";
 import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
 import ScrollProgressBar from './components/ui/ScrollProgressBar';
@@ -9,6 +8,8 @@ import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
 import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import bgpattern from '/bg_pattern.webp';
+import { SmoothCursor } from './components/ui/smooth-cursor';
+import FloatingDock from "@/components/ui/FloatingDock";
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
@@ -20,6 +21,8 @@ const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlig
 function AppContent() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
+      <SmoothCursor />
+
       <ScrollbarCustomizer 
         width="6px"
         trackColor="#1a202c"
@@ -49,7 +52,6 @@ function AppContent() {
         <ScrollProgressBar />
         <div className="relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Navbar />
             <motion.main
               className="relative"
               initial={{ opacity: 0 }}
@@ -73,7 +75,8 @@ function AppContent() {
           </div>
         </div>
       </div>
-    </Suspense>
+      <FloatingDock position="top" />
+      </Suspense>
   );
 }
 

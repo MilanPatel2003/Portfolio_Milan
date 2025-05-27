@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, Suspense, useMemo } from "react";
+import React, { useRef, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import {  useAnimations, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
-import TypingAnimation from "@/components/ui/typing-animation";
+import { useAnimations, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
+import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/magicui/terminal";
 import { OrbitingSkills } from "./orbit";
 import About from "./About";
 import Skills from "./Skills";
@@ -30,16 +30,6 @@ const Model = React.memo(function Model() {
 });
 
 export default function Hero() {
-  const pixieText = "Hey there! I'm Pixie, your friendly robot companion. 🤖 My master and I are stranded in space 🚀, but while we're stuck, why not explore this portfolio? Dive into the creativity that powers our journey through the stars!";
-
-  const memoizedTypingAnimation = useMemo(() => (
-    <TypingAnimation
-      className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl oxanium-pixie-text"
-      text={pixieText}
-      duration={30}
-    />
-  ), []);
-
   return (
     <section className="flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10">
       <div className="w-full flex flex-col lg:flex-row items-center justify-center mb-8">
@@ -60,7 +50,44 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
-          {memoizedTypingAnimation}
+          <Terminal>
+            <TypingAnimation>
+              &gt; Welcome to my portfolio!
+            </TypingAnimation>
+            <AnimatedSpan delay={1500} className="text-green-500">
+              ✔ Loading personal information...
+            </AnimatedSpan>
+            <AnimatedSpan delay={2000} className="text-green-500">
+              ✔ Initializing 3D model...
+            </AnimatedSpan>
+            <AnimatedSpan delay={2500} className="text-green-500">
+              ✔ Setting up interactive elements...
+            </AnimatedSpan>
+            <AnimatedSpan delay={3000} className="text-green-500">
+              ✔ Loading skills and experience...
+            </AnimatedSpan>
+            <AnimatedSpan delay={3500} className="text-green-500">
+              ✔ Portfolio modules loaded.
+            </AnimatedSpan>
+            <AnimatedSpan delay={4000} className="text-green-500">
+              ✔ Projects fetched successfully.
+            </AnimatedSpan>
+            <AnimatedSpan delay={4500} className="text-green-500">
+              ✔ Contact form initialized.
+            </AnimatedSpan>
+            <AnimatedSpan delay={5000} className="text-green-500">
+              ✔ UI animations ready.
+            </AnimatedSpan>
+            <AnimatedSpan delay={5500} className="text-green-500">
+              ✔ All systems operational.
+            </AnimatedSpan>
+            <AnimatedSpan delay={6000} className="text-blue-500">
+              ℹ System Status:
+              - 3D Model: Active
+              - Skills Orbit: Running
+              - Portfolio: Ready
+            </AnimatedSpan>
+          </Terminal>
         </div>
       </div>
       <div className="w-full">

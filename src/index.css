@@ -70,11 +70,11 @@
     font-style: normal;
   }
   /* Apply custom cursor only on non-touch devices */
-  @media (hover: hover) and (pointer: fine) {
+  /* @media (hover: hover) and (pointer: fine) {
     body {
       cursor: url('../src/assets/img/cursor4.png'), auto;
     }
-  }
+  } */
 }
 
 .oxanium-pixie-text {
