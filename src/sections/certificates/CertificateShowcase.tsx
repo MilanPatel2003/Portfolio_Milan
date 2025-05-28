@@ -11,7 +11,7 @@ interface CertificateShowcaseProps {
 }
 
 const CertificateShowcase: React.FC<CertificateShowcaseProps> = ({ certificates }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [_, setActiveIndex] = useState(0);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % certificates.length);
