@@ -5,6 +5,7 @@ import { SiBootstrap, SiMongodb, SiMongoose, SiPostman, SiTailwindcss, SiTypescr
 import { TbBrandFramerMotion } from 'react-icons/tb';
 import { SiThreedotjs } from 'react-icons/si';
 import { FaStar } from 'react-icons/fa';
+import BlurFade from '@/components/ui/blur-fade';
 
 const skills = [
   { name: 'React', icon: <FaReact />, color: 'text-blue-500', proficiency: 5 },
@@ -27,9 +28,26 @@ const skills = [
 export default function SkillsSection() {
   return (
     <section className="mb-10 py-16 bg-transparent">
-      <h2 className="text-4xl text-gray-500 sm:text-4xl md:text-5xl lg:text-6xl font-thin mb-12 text-center">
-        SKILLS
-      </h2>
+            <BlurFade delay={0.1}>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-4"
+          >
+            Skills
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-400 max-w-2xl mx-auto"
+          >
+            Technical expertise and proficiency in modern web development technologies
+          </motion.p>
+        </div>
+      </BlurFade>
       <motion.div 
         className="max-w-6xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8"
         initial={{ opacity: 0, y: 50 }}
