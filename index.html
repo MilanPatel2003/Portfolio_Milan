@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/LOGO2.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Milan Patel's Portfolio</title>
+    <script src="/finisher-header.es5.min.js"></script>
     <style>
       body {
  
@@ -80,86 +81,9 @@
     <div class="finisher-header"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="/finisher-header.es5.min.js"></script>
-    <!-- <script type="text/javascript">
-      new FinisherHeader({
-        "count": 10,
-        "size": {
-          "min": 1300,
-          "max": 1500,
-          "pulse": 0
-        },
-        "speed": {
-          "x": {
-            "min": 0.1,
-            "max": 0.6
-          },
-          "y": {
-            "min": 0.1,
-            "max": 0.6
-          }
-        },
-        "colors": {
-          "background": "#000000",
-          "particles": [
-            "#000000",
-            "#114376",
-            "#2235e5",
-            "#000000",
-            "#000000"
-          ]
-        },
-        "blending": "overlay",
-        "opacity": {
-          "center": 0.5,
-          "edge": 0.05
-        },
-        "skew": -2,
-        "shapes": [
-          "c"
-        ]
-      });
-    </script> -->
-    <!-- <script type="text/javascript">
-      new FinisherHeader({
-        "count": 10,
-        "size": {
-          "min": 98,
-          "max": 1500,
-          "pulse": 0
-        },
-        "speed": {
-          "x": {
-            "min": 0.1,
-            "max": 0.6
-          },
-          "y": {
-            "min": 0.1,
-            "max": 0.6
-          }
-        },
-        "colors": {
-          "background": "#000000",
-          "particles": [
-            "#000000",
-            "#fffefe",
-            "#adadb1",
-            "#000000",
-            "#241a1a"
-          ]
-        },
-        "blending": "none",
-        "opacity": {
-          "center": 0.5,
-          "edge": 0
-        },
-        "skew": 0,
-        "shapes": [
-          "c"
-        ]
-      });
-      </script> -->
-      <script type="text/javascript">
+    
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
         new FinisherHeader({
           "count": 2,
           "size": {
@@ -193,8 +117,9 @@
             "c"
           ]
         });
-        </script>
-      <div class="chat-notification-container">
+      });
+    </script>
+    <div class="chat-notification-container">
       <div class="chat-notification" onclick="document.querySelector('.bpw-widget-btn').click()">
         <span class="notification-text">Chat with my AI assistant to learn about me.</span>
       </div>
