@@ -1,21 +1,20 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import StarsCanvas from "./components/ui/StarBackground";
 import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
 import ScrollProgressBar from './components/ui/ScrollProgressBar';
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
-import { certificateData } from './portfolioData.ts/data';
+import { certificateData, projectsData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
-import bgpattern from '/bg_pattern.webp';
 import { SmoothCursor } from './components/ui/smooth-cursor';
 import FloatingDock from "@/components/ui/FloatingDock";
+import LocomotiveScrollWrapper from './components/ui/LocomotiveScroll';
+import ProjectShowcase from './sections/projects/ProjectShowcase';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
-const Projects = lazy(() => import('./sections/projects/Projects'));
 const GitHubContributions = lazy(() => import('./components/ui/GitHubContributions'));
-const CertificateScroll = lazy(() => import('./sections/certificates/CertificateScroll'));
+const CertificateShowcase = lazy(() => import('./sections/certificates/CertificateShowcase'));
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 
 function AppContent() {
@@ -31,26 +30,9 @@ function AppContent() {
           "rgba(58, 58, 58, 0.8)",
         ]}
       />
-      <div 
-        className="h-full w-full bg-slate-950 bg-no-repeat relative overflow-hidden
-                   bg-[length:750%_auto] sm:bg-[length:200%_auto] md:bg-[length:250%_auto]
-                   bg-top sm:bg-center"
-      >
-        <motion.div
-          className="absolute inset-0 z-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          style={{
-            backgroundImage: `url(${bgpattern})`,
-            backgroundRepeat: 'inherit',
-            backgroundSize: 'inherit',
-            backgroundPosition: 'inherit',
-          }}
-        />
-        <StarsCanvas />
+      <LocomotiveScrollWrapper className="h-full w-full relative overflow-hidden">
         <ScrollProgressBar />
-        <div className="relative z-20">
+        <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.main
               className="relative"
@@ -60,13 +42,14 @@ function AppContent() {
             >
               <Hero />
               <Experience />
-              <Projects />
+              {/* <Projects /> */}
+              <ProjectShowcase projects={projectsData}/>
               <div className="py-12">
                 <GitHubContributions 
                   username="MilanPatel2003"
                 />
               </div>
-              <CertificateScroll content={certificateData} />
+              <CertificateShowcase certificates={certificateData} />
               <CharacterSpotlight />
             </motion.main>
           </div>
@@ -74,9 +57,9 @@ function AppContent() {
             <Footer />
           </div>
         </div>
-      </div>
+      </LocomotiveScrollWrapper>
       <FloatingDock position="top" />
-      </Suspense>
+    </Suspense>
   );
 }
 

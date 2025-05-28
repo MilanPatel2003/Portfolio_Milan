@@ -8,7 +8,7 @@ import GradualSpacing from '@/components/ui/gradual-spacing';
 import React from 'react';
 
 const Character = React.memo(({ animationUrl, isMobile }: { animationUrl: string, isMobile: boolean }) => {
-  const fbx = useLoader(FBXLoader, '/models/Offensive Idle.fbx');
+  const fbx = useLoader(FBXLoader, '/models/Waving.fbx');
   const animationFbx = useLoader(FBXLoader, animationUrl);
   const mixerRef = useRef<AnimationMixer | null>(null);
   const actionRef = useRef<AnimationAction | null>(null);
@@ -32,7 +32,7 @@ const Character = React.memo(({ animationUrl, isMobile }: { animationUrl: string
     if (fbx) {
       fbx.position.set(0, -2, 0);
       fbx.scale.setScalar(isMobile ? 2.5 : 1.7);
-      fbx.rotation.y = Math.PI / 4;
+      fbx.rotation.y = -Math.PI / 5;
     }
   }, [fbx, isMobile]);
 
@@ -40,7 +40,7 @@ const Character = React.memo(({ animationUrl, isMobile }: { animationUrl: string
 });
 
 const CharacterSpotlight = () => {
-  const [currentAnimation, setCurrentAnimation] = useState('/models/Offensive Idle.fbx');
+  const [currentAnimation, setCurrentAnimation] = useState('/models/Waving.fbx');
   const spotlightRef = useRef(null);
   const isInView = useInView(spotlightRef, { once: true, amount: 0.3 });
   const [isMobile, setIsMobile] = useState(false);
@@ -55,13 +55,9 @@ const CharacterSpotlight = () => {
   }, []);
 
   const animations = useMemo(() => [
+    { name: 'Waving', url: '/models/Waving.fbx' },
     { name: 'Idle', url: '/models/Offensive Idle.fbx' },
-    { name: 'Gangnam Style', url: '/models/Gangnam Style.fbx' },
-    { name: 'Jumping', url: '/models/Jumping.fbx' },
-    { name: 'Push Up', url: '/models/Push Up.fbx' },
-    { name: 'Golf Drive', url: '/models/Golf Drive.fbx' },
-    { name: 'Swimming', url: '/models/Swimming.fbx' },
-    { name: 'Salsa Dancing', url: '/models/Salsa Dancing.fbx' },
+
     { name: 'Spell Casting', url: '/models/Spell Casting.fbx' },
     { name: 'Spin In Place', url: '/models/Spin In Place.fbx' },
     
@@ -99,8 +95,8 @@ const CharacterSpotlight = () => {
               onClick={() => handleAnimationChange(anim.url)}
               className={`px-2 py-1 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full text-xs sm:text-sm lg:text-base transition-all ${
                 currentAnimation === anim.url
-                  ? 'bg-purple-600 text-white shadow-lg transform scale-105'
-                  : 'bg-purple-900 text-purple-200 hover:bg-purple-800 hover:text-white'
+                  ? 'bg-white text-black shadow-lg transform scale-105'
+                  : 'bg-black text-white hover:bg-gray-800 hover:text-white'
               }`}
             >
               {anim.name}
@@ -123,10 +119,36 @@ const CharacterSpotlight = () => {
             className="!absolute inset-0"
           >
             <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 7 : 5]} fov={50} />
-            <ambientLight intensity={0.5} />
-            <directionalLight color="#ffffff" intensity={1} position={[5, 5, 5]} />
+            <ambientLight intensity={1.0} />
+            <directionalLight 
+              color="#ffffff" 
+              intensity={1.5} 
+              position={[5, 5, 5]} 
+              castShadow
+            />
+            <directionalLight 
+              color="#ffffff" 
+              intensity={1.2} 
+              position={[-5, 3, -5]} 
+            />
+            <pointLight 
+              color="#ffffff" 
+              intensity={0.8} 
+              position={[0, 3, 0]} 
+            />
+            <spotLight
+              color="#ffffff"
+              intensity={1.0}
+              position={[0, 5, 0]}
+              angle={0.5}
+              penumbra={0.5}
+              castShadow
+            />
             <Character animationUrl={currentAnimation} isMobile={isMobile} />
-            <OrbitControls enableZoom={false} enablePan={false} />
+            <OrbitControls 
+              enableZoom={false} 
+              enablePan={false} 
+            />
           </Canvas>
         </Suspense>
       </div>

@@ -11,23 +11,7 @@ export interface Project {
   features: string[];
 }
 
-export const projects: Project[] = [
-  {
-    title: "PrepOnyx AI powered SaaS platform",
-    url: "https://preponyx.web.app/",
-    description: "Built an AI-driven SaaS platform with Firebase, React, and generative AI models (Google AI, OpenAI, LLaMA 3.0).",
-    technologies: ["React", "Node", "Firebase", "Langchain", "LLM models"],
-    features: [
-      "AI-powered mock interviews",
-      "Scribble-to-AI converter",
-      "Personalized course creation",
-      "PDF summarizer",
-      "Free credit system with Stripe/Razorpay integration",
-      "Frontend optimized with Tailwind CSS",
-      "Backend using Firestore and Cloud Functions for AI processing"
-    ]
-  }
-];
+
 
 export const experienceData = [
   {

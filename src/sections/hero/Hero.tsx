@@ -33,7 +33,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10">
       <div className="w-full flex flex-col lg:flex-row items-center justify-center mb-8">
-        <div className="w-full lg:w-1/2 h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[500px] relative mt-16 sm:mt-20 lg:mt-0">
+        <div className="w-full lg:w-1/2 h-[250px] sm:h-[300px] md:h-[350px] lg:h-[300px] xl:h-[500px] relative mt-16 sm:mt-20 lg:mt-0">
           <Canvas
             gl={{ antialias: false, powerPreference: "high-performance" }}
             dpr={[1, 2]}
@@ -50,38 +50,38 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
-          <Terminal>
+          <Terminal className="bg-transparent">
             <TypingAnimation>
               &gt; Welcome to my portfolio!
             </TypingAnimation>
-            <AnimatedSpan delay={1500} className="text-green-500">
+            <AnimatedSpan delay={1500} className="text-gray-300">
               ✔ Loading personal information...
             </AnimatedSpan>
-            <AnimatedSpan delay={2000} className="text-green-500">
+            <AnimatedSpan delay={2000} className="text-gray-300">
               ✔ Initializing 3D model...
             </AnimatedSpan>
-            <AnimatedSpan delay={2500} className="text-green-500">
+            <AnimatedSpan delay={2500} className="text-gray-300">
               ✔ Setting up interactive elements...
             </AnimatedSpan>
-            <AnimatedSpan delay={3000} className="text-green-500">
+            <AnimatedSpan delay={3000} className="text-gray-300">
               ✔ Loading skills and experience...
             </AnimatedSpan>
-            <AnimatedSpan delay={3500} className="text-green-500">
+            <AnimatedSpan delay={3500} className="text-gray-300">
               ✔ Portfolio modules loaded.
             </AnimatedSpan>
-            <AnimatedSpan delay={4000} className="text-green-500">
+            <AnimatedSpan delay={3000} className="text-gray-300">
               ✔ Projects fetched successfully.
             </AnimatedSpan>
-            <AnimatedSpan delay={4500} className="text-green-500">
+            <AnimatedSpan delay={4500} className="text-gray-300">
               ✔ Contact form initialized.
             </AnimatedSpan>
-            <AnimatedSpan delay={5000} className="text-green-500">
+            <AnimatedSpan delay={5000} className="text-gray-300">
               ✔ UI animations ready.
             </AnimatedSpan>
-            <AnimatedSpan delay={5500} className="text-green-500">
+            <AnimatedSpan delay={5500} className="text-gray-300">
               ✔ All systems operational.
             </AnimatedSpan>
-            <AnimatedSpan delay={6000} className="text-blue-500">
+            <AnimatedSpan delay={6000} className="animate-gradient-x">
               ℹ System Status:
               - 3D Model: Active
               - Skills Orbit: Running

@@ -69,12 +69,7 @@
     font-weight: 400;
     font-style: normal;
   }
-  /* Apply custom cursor only on non-touch devices */
-  /* @media (hover: hover) and (pointer: fine) {
-    body {
-      cursor: url('../src/assets/img/cursor4.png'), auto;
-    }
-  } */
+
 }
 
 .oxanium-pixie-text {
@@ -110,7 +105,7 @@
 }
 
 .animate-gradient-x {
-  background: linear-gradient(to right, #3b82f6, #8b5cf6, #10b981);
+  background: linear-gradient(to right, #dadee5, #989090, #dedede);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -128,7 +123,7 @@
 }
 
 .animate-gradient-x2 {
-  background: linear-gradient(to right, #3b82f6, #8b5cf6, #5352ad);
+  background: linear-gradient(to right, #c5c5c5, #000000, #cccccc);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -156,6 +151,46 @@
   }
   to {
     text-shadow: 0 0 7px #00e6e6, 0 0 14px #00e6e6, 0 0 21px #00e6e6;
+  }
+}
+
+/* Locomotive Scroll Styles */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+
+/* Ensure smooth scrolling on all devices */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
