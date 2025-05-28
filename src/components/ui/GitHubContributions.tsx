@@ -42,7 +42,7 @@ const GitHubContributions: React.FC<{ username: string }> = ({ username }) => {
     <BlurFade delay={0.1}>
       <Card className="w-full bg-black/30 backdrop-filter backdrop-blur-lg border border-cyan-500/30 text-white rounded-xl overflow-hidden">
         <CardHeader className="border-b border-green-500/30">
-          <CardTitle className="text-2xl font-thin text-green-300 animate-pulse">GitHub Contributions</CardTitle>
+          <CardTitle className="text-2xl font-thin text-white animate-pulse">GitHub Contributions</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
           <div className="flex justify-center gap-2 mb-4">
@@ -57,8 +57,8 @@ const GitHubContributions: React.FC<{ username: string }> = ({ username }) => {
                 onClick={() => setTimeRange(range as 'month' | 'halfYear' | 'year')}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   timeRange === range
-                    ? 'bg-green-500 text-black'
-                    : 'bg-cyan-900/50 text-green-300 hover:bg-cyan-800/50'
+                    ? 'bg-white text-black'
+                    : 'bg-cyan-900/50 text-white hover:bg-cyan-800/50'
                 }`}
               >
                 {range === 'month' ? 'Last Month' : range === 'halfYear' ? 'Last 6 Months' : 'Last Year'}
@@ -86,8 +86,7 @@ const GitHubContributions: React.FC<{ username: string }> = ({ username }) => {
                 margin: 'auto',
               }}
               theme={{
-                dark: ['#1e1e1e', '#003820', '#00592f', '#00854a', '#00b366'],
-                light: ['#1e1e1e', '#003820', '#00592f', '#00854a', '#00b366'],
+                dark: ['#1e1e1e', '#4d4d4d', '#7d7d7d', '#adadad', '#e0e0e0']
               }}
               labels={{
                 months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],

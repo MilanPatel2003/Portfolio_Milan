@@ -51,13 +51,13 @@ export default function SkillsSection() {
             >
               {skill.icon}
             </motion.div>
-            <p className="mt-2 text-sm font-medium text-gray-600">{skill.name}</p>
+            <p className="mt-2 text-sm font-medium text-gray-100">{skill.name}</p>
             <div className="flex mt-1">
               {[...Array(5)].map((_, index) => (
                 <FaStar
                   key={index}
                   className={`w-3 h-3 ${
-                    index < skill.proficiency ? 'text-purple-400' : 'text-gray-300'
+                    index < skill.proficiency ? 'text-gray-300' : 'text-black'
                   }`}
                 />
               ))}

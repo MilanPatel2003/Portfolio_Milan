@@ -11,14 +11,14 @@ export default function About() {
         <HyperText
           text="Milan Patel"
           animateOnLoad={true}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-thin font-oxanium mb-4 mx-auto text-center animate-gradient-x"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extralight font-oxanium animate-gradient-x mb-4 mx-auto text-center"
         />
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 whitespace-nowrap overflow-hidden">
           <span className="inline-flex items-center">
-            I<WordRotate
-              className="text-purple-400 mx-4"
+            I<div className="border rounded-full m-4 w-32"><WordRotate
+              className="text-gray-200 rounded-full mx-4"
               words={["Code", "Create", "Develop", "Innovate"]}
-            /> & Explore Tech 🚀
+            /></div> & Explore Tech 🚀
           </span>
         </h2>
         <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8"> 
