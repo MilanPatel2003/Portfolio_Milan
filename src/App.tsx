@@ -10,13 +10,13 @@ import { SmoothCursor } from './components/ui/smooth-cursor';
 import FloatingDock from "@/components/ui/FloatingDock";
 import LocomotiveScrollWrapper from './components/ui/LocomotiveScroll';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
-import ContactForm from './components/ContactForm';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
 const GitHubContributions = lazy(() => import('./components/ui/GitHubContributions'));
 const CertificateShowcase = lazy(() => import('./sections/certificates/CertificateShowcase'));
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
+const ContactForm = lazy(() => import('./sections/contact/ContactForm'));
 
 function AppContent() {
   return (
