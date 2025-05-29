@@ -32,7 +32,7 @@ const FloatingDock = ({ position = 'bottom' }: FloatingDockProps) => {
           </a>
         </DockIcon>
         <DockIcon>
-          <a href="mailto:your@email.com" aria-label="Email">
+          <a href="mailto:milanpatel6454@email.com" aria-label="Email">
             <HiOutlineEnvelope className="size-6 text-white" />
           </a>
         </DockIcon>

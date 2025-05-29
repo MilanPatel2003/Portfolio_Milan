@@ -10,6 +10,7 @@ import { SmoothCursor } from './components/ui/smooth-cursor';
 import FloatingDock from "@/components/ui/FloatingDock";
 import LocomotiveScrollWrapper from './components/ui/LocomotiveScroll';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
+import ContactForm from './components/ContactForm';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
@@ -49,11 +50,16 @@ function AppContent() {
                   username="MilanPatel2003"
                 />
               </div>
+
               <CertificateShowcase certificates={certificateData} />
               <CharacterSpotlight />
+              <ContactForm/>
+
             </motion.main>
+
           </div>
           <div>
+
             <Footer />
           </div>
         </div>
