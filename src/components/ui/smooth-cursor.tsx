@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useSpring } from "framer-motion";
-import { FC, JSX, useEffect, useRef } from "react";
+import { FC, JSX, useEffect, useRef, useState } from "react";
 
 interface Position {
   x: number;
@@ -89,6 +89,7 @@ export function SmoothCursor({
     restDelta: 0.001,
   },
 }: SmoothCursorProps) {
+  const [isMobile, setIsMobile] = useState(false);
   const lastMousePos = useRef<Position>({ x: 0, y: 0 });
   const velocity = useRef<Position>({ x: 0, y: 0 });
   const lastUpdateTime = useRef(Date.now());
@@ -109,6 +110,29 @@ export function SmoothCursor({
   });
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      const isMobileDevice = window.matchMedia("(max-width: 768px)").matches || 
+                           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(isMobileDevice);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now();
       const deltaTime = currentTime - lastUpdateTime.current;
@@ -175,7 +199,11 @@ export function SmoothCursor({
       document.body.style.cursor = "auto";
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [cursorX, cursorY, rotation, scale]);
+  }, [cursorX, cursorY, rotation, scale, isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <motion.div
