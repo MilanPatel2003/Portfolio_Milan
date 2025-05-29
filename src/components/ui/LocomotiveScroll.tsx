@@ -18,7 +18,7 @@ const LocomotiveScrollWrapper: React.FC<LocomotiveScrollProps> = ({ children, cl
       el: scrollRef.current,
       smooth: true,
       multiplier: 0.8, // Slightly reduced multiplier for smoother feel
-      lerp: 0.04, // Lower lerp value for smoother interpolation
+      lerp: 0.05, // Lower lerp value for smoother interpolation
       scrollFromAnywhere: true, // Enable scrolling from anywhere
       reloadOnContextChange: true, // Reload on context change for better performance
       class: 'is-revealed', // Class added to elements when they're in view

@@ -1,18 +1,33 @@
-import HyperText from "@/components/ui/hyper-text";
 import ShimmerButton from "@/components/ui/shimmer-button";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import WordRotate from "@/components/ui/word-rotate";
 
 export default function About() {
+  const words = [
+    {
+      text: "MILAN PATEL",
+      className: "font-light text-xl sm:text-2xl md:text-3xl lg:text-5xl font-oxanium text-gray-300"
+    },
+    // {
+    //   text: "Patel",
+    // },
+    {
+      text: "Full-Stack",
+      className: "font-oxanium font-light text-md sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x",
+    },
+    {
+      text: "Developer",
+      className: "font-oxanium font-light text-md sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x",
+    },
+  ];
   
   return (
     <div className="bg-transparent text-white w-full flex flex-col justify-center items-center relative py-8">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      <TypewriterEffectSmooth words={words}/>
       <div className="relative z-10 text-center max-w-3xl px-4">
-        <HyperText
-          text="Milan Patel"
-          animateOnLoad={true}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extralight font-oxanium animate-gradient-x mb-4 mx-auto text-center"
-        />
+             
+
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 whitespace-nowrap overflow-hidden">
           <span className="inline-flex items-center">
             I<div className="border rounded-full m-4 w-32"><WordRotate

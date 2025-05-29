@@ -7,6 +7,7 @@ import About from "./About";
 import Skills from "./Skills";
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 function Loader() {
   const { progress } = useProgress();
@@ -88,6 +89,15 @@ export default function Hero() {
               - Portfolio: Ready
             </AnimatedSpan>
           </Terminal>
+       
+          <InteractiveHoverButton className="mt-2">
+                <a
+            href="/Milans_latest_Resume.pdf"
+            download
+          >
+            Download Resume
+          </a> 
+          </InteractiveHoverButton>
         </div>
       </div>
       <div className="w-full">
