@@ -28,7 +28,7 @@ const skills = [
 export default function SkillsSection() {
   return (
     <section className="mb-10 py-16 bg-transparent">
-            <BlurFade delay={0.1}>
+      <BlurFade delay={0.1}>
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -54,20 +54,35 @@ export default function SkillsSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, staggerChildren: 0.1 }}
       >
-        {skills.map((skill) => (
+        {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
             className="flex flex-col items-center justify-center p-4 rounded-lg bg-transparent shadow-md"
-            whileHover={{ scale: 1.1, zIndex: 1 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5,
+              delay: index * 0.1,
+              type: "spring",
+              stiffness: 100
+            }}
           >
             <motion.div 
-              className={`text-4xl sm:text-5xl md:text-6xl ${skill.color}`}
-              initial={{ rotateY: 0 }}
-              whileHover={{ rotateY: 180 }}
-              transition={{ duration: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl text-white transition-colors duration-300"
+              whileHover={{ scale: 1.2 }}
+              transition={{ duration: 0.2 }}
             >
-              {skill.icon}
+              <motion.div
+                whileHover={{ color: 'inherit' }}
+                className="group"
+              >
+                <span className="group-hover:hidden">
+                  {skill.icon}
+                </span>
+                <span className={`hidden group-hover:block ${skill.color}`}>
+                  {skill.icon}
+                </span>
+              </motion.div>
             </motion.div>
             <p className="mt-2 text-sm font-medium text-gray-100">{skill.name}</p>
             <div className="flex mt-1">

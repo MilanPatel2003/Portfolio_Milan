@@ -126,33 +126,33 @@ const Icons = {
     <RiNotionFill className="text-white" size={30} />
   ),
   framer: () => (
-    <TbBrandFramerMotion className="text-pink-500" size={30} />
+    <TbBrandFramerMotion className="text-white" size={30} />
   ),
   node: () => (
-    <FaNode className="text-green-500" size={50} />
+    <FaNode className="text-white" size={50} />
   ),
   react: () => (
-    <FaReact className="text-blue-500" size={45} />
+    <FaReact className="text-white" size={45} />
   ),
   nextJS: () => (
-    <SiNextdotjs className="text-gray-500" size={30} />
+    <SiNextdotjs className="text-white" size={30} />
   ),
   typescript: () => (
-    <SiTypescript className="text-yellow-500" size={25} />
+    <SiTypescript className="text-white" size={25} />
   ),
   aws: () => (
-    <FaAws className="text-yellow-500" size={25} />
+    <FaAws className="text-white" size={25} />
   ),
   threejs: () => (
     <TbBrandThreejs className="text-white" size={30} />
   ),
   figma: () => (
-    <FaFigma className="text-purple-500" size={30} />
+    <FaFigma className="text-white" size={30} />
   ),
   postman: () => (
-    <SiPostman className="text-orange-500" size={30} />
+    <SiPostman className="text-white" size={30} />
   ),
   tailwind: () => (
-    <SiTailwindcss className="text-blue-400" size={30} />
+    <SiTailwindcss className="text-white" size={30} />
   ),
 };

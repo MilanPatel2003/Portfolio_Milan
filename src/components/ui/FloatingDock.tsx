@@ -7,7 +7,7 @@ interface FloatingDockProps {
 }
 
 const FloatingDock = ({ position = 'bottom' }: FloatingDockProps) => {
-  const verticalClass = position === 'top' ? 'top-6' : 'bottom-6';
+  const verticalClass = position === 'top' ? 'top-0' : 'bottom-6';
   return (
     <div className={`fixed ${verticalClass} left-1/2 -translate-x-1/2 z-50`}>
       <Dock direction="middle">
