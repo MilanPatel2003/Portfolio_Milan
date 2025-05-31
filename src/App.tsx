@@ -10,7 +10,6 @@ import { SmoothCursor } from './components/ui/smooth-cursor';
 import FloatingDock from "@/components/ui/FloatingDock";
 import LocomotiveScrollWrapper from './components/ui/LocomotiveScroll';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
-import { AnimatedGridPattern } from './components/magicui/animated-grid-pattern';
 import AmbientLightCursor from './components/ui/AmbientLightCursor';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));

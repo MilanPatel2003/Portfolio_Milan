@@ -2,15 +2,12 @@ import React, { useRef, useEffect, Suspense } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useAnimations, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Object3D } from 'three';
-import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/magicui/terminal";
+import { Terminal, AnimatedSpan } from "@/components/magicui/terminal";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import ShimmerButton from "@/components/ui/shimmer-button";
-import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
-import GradualSpacing from "@/components/ui/gradual-spacing";
+
 import OrbitingCircles from "@/components/ui/orbiting-circles";
-// import { OrbitingSkills } from "./orbit";
 import About from "./About";
 import Skills from "./Skills";
 
@@ -80,27 +77,37 @@ export default function Hero() {
         <Terminal className="w-full max-w-5xl mx-auto bg-black border-2 border-transparent bg-clip-padding shadow-2xl rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-bold text-lg text-gray-300 tracking-widest">MILAN PATEL</span>
+            <span className="font-bold text-lg text-gray-300 tracking-widest">MILAN</span>
             <span className="text-xs text-gray-400 ml-2">~$</span>
           </div>
           {/* Terminal Content: Flex for text and 3D model */}
           <div className="flex flex-col md:flex-row w-full gap-6 items-center md:items-start">
             {/* Terminal Text (About Me) with lots of code-style commands */}
             <div className="flex-1 min-w-[220px] w-full">
-              <AnimatedSpan delay={600} className="font-mono text-gray-200">$ cd ~/workspace</AnimatedSpan>
-              <AnimatedSpan delay={900} className="font-mono text-gray-400">~/workspace</AnimatedSpan>
-              <AnimatedSpan delay={1200} className="font-mono text-gray-200">$ ls -lh</AnimatedSpan>
-              <AnimatedSpan delay={1500} className="font-mono text-gray-400">README.md  ideas.txt  src/  public/  deploy.sh</AnimatedSpan>
-              <AnimatedSpan delay={1800} className="font-mono text-gray-200">$ cat ideas.txt</AnimatedSpan>
-              <AnimatedSpan delay={2100} className="font-mono text-gray-400">- Build beautiful UIs</AnimatedSpan>
-              <AnimatedSpan delay={2300} className="font-mono text-gray-400">- Animate everything</AnimatedSpan>
-              <AnimatedSpan delay={2500} className="font-mono text-gray-400">- Make code readable</AnimatedSpan>
-              <AnimatedSpan delay={2700} className="font-mono text-gray-400">- Ship fast 🚀</AnimatedSpan>
-              <AnimatedSpan delay={2900} className="font-mono text-gray-200">$ bash deploy.sh</AnimatedSpan>
-              <AnimatedSpan delay={3200} className="font-mono text-gray-400">[deploy] Building project...</AnimatedSpan>
-              <AnimatedSpan delay={3500} className="font-mono text-gray-400">[deploy] Success! Portfolio is live.</AnimatedSpan>
-              <AnimatedSpan delay={3800} className="font-mono text-gray-200">$ echo "Ready for new challenges!"</AnimatedSpan>
-              <AnimatedSpan delay={4100} className="font-mono text-gray-400">Ready for new challenges!</AnimatedSpan>
+              <AnimatedSpan delay={600} className="font-mono text-gray-200">$ whoami</AnimatedSpan>
+              <AnimatedSpan delay={900} className="font-mono text-gray-400">Milan Patel (Full-Stack Developer)</AnimatedSpan>
+              <AnimatedSpan delay={1200} className="font-mono text-gray-200">$ location</AnimatedSpan>
+              <AnimatedSpan delay={1500} className="font-mono text-gray-400">Ahmedabad, GJ, India</AnimatedSpan>
+              <AnimatedSpan delay={1800} className="font-mono text-gray-200">$ stack --list</AnimatedSpan>
+              <AnimatedSpan delay={2100} className="font-mono text-gray-400">React, Next.js, Node.js, MongoDB, SQL, Python</AnimatedSpan>
+              <AnimatedSpan delay={2400} className="font-mono text-gray-200">$ summary</AnimatedSpan>
+              <AnimatedSpan delay={2700} className="font-mono text-gray-400">Passionate about building web applications that blend creativity with functionality. MCA student, hands-on with React, Node.js, Python, SQL. Eager to contribute and grow as a developer!</AnimatedSpan>
+              <AnimatedSpan delay={3000} className="font-mono text-gray-200">$ contact --all</AnimatedSpan>
+              <AnimatedSpan delay={3300} className="font-mono text-gray-400">
+                <a href="mailto:milanpatel6454@gmail.com" className="underline hover:text-blue-400">📧 milanpatel6454@gmail.com</a>
+              </AnimatedSpan>
+              <AnimatedSpan delay={3600} className="font-mono text-gray-400">
+                <a href="https://www.linkedin.com/in/milan-patel-37650330b" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🔗 linkedin.com/in/milan-patel-37650330b</a>
+              </AnimatedSpan>
+              <AnimatedSpan delay={3900} className="font-mono text-gray-400">
+                <a href="https://github.com/MilanPatel2003" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🐙 github.com/MilanPatel2003</a>
+              </AnimatedSpan>
+              <AnimatedSpan delay={4200} className="font-mono text-gray-400">
+                <a href="https://milanpatel.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🌐 milanpatel.vercel.app</a>
+              </AnimatedSpan>
+              {/* <AnimatedSpan delay={4500} className="font-mono text-gray-400">
+                <a href="https://leetcode.com/u/MilanPatel2003/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">💡 leetcode.com/u/MilanPatel2003/</a>
+              </AnimatedSpan> */}
             </div>
             {/* 3D Model (Right Side) with OrbitingCircles - hidden on small screens */}
             <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-[350px] w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">

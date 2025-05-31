@@ -265,19 +265,23 @@ export const certificateData = [
     title: "The Complete 2024 Web Development Bootcamp",
     description: "Comprehensive course covering HTML, CSS, JavaScript, React, Node.js, and more.",
     imageUrl: "https://udemy-certificate.s3.amazonaws.com/image/UC-26baac76-9708-432b-9fea-2c0f5741721e.jpg",
+    link: "https://udemy-certificate.s3.amazonaws.com/image/UC-26baac76-9708-432b-9fea-2c0f5741721e.jpg"
   },
+  
 
   {
     title: "Cisco Intro to Software Engineering Virtual Experience Program on Forage - October 2024",
     description: `Set up a React application and stitch together a series of reusable React components to create a dashboard frontend.
     Used WebSocket to connect to an external service and display packet latency.
     Recorded a sprint review video showcasing the frontend features I've developed in React.`,
-    imageUrl: cisco 
+    imageUrl: cisco,
+    link: cisco
   },
   {
     title: "Tata Group Cybersecurity Analyst",
     description: `The "Tata Cybersecurity Analyst" job simulation involved completing a project focused on identity and access management (IAM) for Tata Consultancy Services. It included collaboration with a cybersecurity team, gaining expertise in IAM principles and best practices, and delivering documentation and presentations to effectively communicate technical concepts.`,
     imageUrl: tatacyber,
+    link: tatacyber
   }
 
   // Add more certificates as needed
