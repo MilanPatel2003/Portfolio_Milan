@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
 import ScrollProgressBar from './components/ui/ScrollProgressBar';
 import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
-import { certificateData, projectsData } from './portfolioData.ts/data';
+import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import { SmoothCursor } from './components/ui/smooth-cursor';
 import FloatingDock from "@/components/ui/FloatingDock";
@@ -46,7 +46,7 @@ function AppContent() {
               <Hero />
               <Experience />
               {/* <Projects /> */}
-              <ProjectShowcase projects={projectsData}/>
+              <ProjectShowcase/>
               <div className="py-12">
                 <GitHubContributions 
                   username="MilanPatel2003"

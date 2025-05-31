@@ -1,178 +1,117 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, PlayCircle, ArrowUpRight } from 'lucide-react';
 import BlurFade from "@/components/ui/blur-fade";
 import { projectsData } from '@/portfolioData.ts/data';
 
-interface ProjectShowcaseProps {
-  projects: typeof projectsData;
-}
-
-const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
+const ProjectShowcase: React.FC = () => {
   return (
     <section className="w-full py-10 sm:py-20 relative overflow-hidden">
       <BlurFade delay={0.1}>
         <div className="text-center mb-8 sm:mb-16 px-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl lg:text-6xl font-thin text-white mb-2 sm:mb-4"
-          >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-4">
             Projects
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto"
-          >
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
             A showcase of my latest projects and technical achievements
-          </motion.p>
+          </p>
         </div>
       </BlurFade>
-
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="relative">
-          {/* Main Project Display */}
-          <div className="relative aspect-[4/3] sm:aspect-video mb-6 sm:mb-8">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0"
-              >
-                <Card className="h-full w-full overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl">
-                  <div className="relative h-full">
-                    <video
-                      src={projects[activeIndex].video}
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
-                      <motion.h3 
-                        className="text-xl sm:text-2xl lg:text-3xl font-medium text-white mb-1 sm:mb-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                      >
-                        {projects[activeIndex].title}
-                      </motion.h3>
-                      <motion.p
-                        className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 line-clamp-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        {projects[activeIndex].description}
-                      </motion.p>
-                      <motion.div
-                        className="flex flex-wrap gap-2 sm:gap-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                      >
-                        {projects[activeIndex].links.map((link, index) => (
-                          <Button 
-                            key={index}
-                            variant="outline" 
-                            size="sm"
-                            className="bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40 backdrop-blur-sm text-xs sm:text-sm"
-                            onClick={() => window.open(link.href, '_blank')}
-                          >
-                            {link.type === "source" ? (
-                              <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                            ) : (
-                              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                            )}
-                            {link.type}
-                          </Button>
-                        ))}
-                      </motion.div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Thumbnail Navigation */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-4">
-            {projects.map((project, index) => (
-              <motion.div
+      <div className="max-w-6xl mx-auto px-2 sm:px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
+          {projectsData.map((project, index) => {
+            // Find the live website link if present
+            const liveLink = project.links?.find(l => l.type.toLowerCase() === 'website');
+            const sourceLink = project.links?.find(l => l.type.toLowerCase() === 'source');
+            return (
+              <Card
                 key={index}
-                className={`relative aspect-[4/3] sm:aspect-video cursor-pointer ${
-                  index === activeIndex ? 'ring-2 ring-white' : ''
-                }`}
-                onClick={() => setActiveIndex(index)}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
+                className="flex flex-col h-full rounded-2xl shadow-xl bg-white/5 border border-white/10 overflow-hidden transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl group"
               >
-                <Card className="h-full w-full overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg">
-                  <video
-                    src={project.video}
-                    className="w-full h-full object-cover"
-                    muted
-                    playsInline
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white text-xs sm:text-sm font-medium px-2 text-center">{project.title}</span>
+                {/* Image at the top with overlay arrow */}
+                <div className="relative">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-56 object-cover object-top"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-56 bg-gray-800 flex items-center justify-center text-gray-400">No Image</div>
+                  )}
+                  {/* Arrow overlay at center on hover, links to live website if available */}
+                  {liveLink && (
+                    <a
+                      href={liveLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                      aria-label="Open Live Website"
+                      tabIndex={-1}
+                    >
+                      <span className="bg-black/70 hover:bg-black/90 text-white rounded-full p-3 flex items-center justify-center shadow-lg">
+                        <ArrowUpRight className="h-6 w-6" />
+                      </span>
+                    </a>
+                  )}
+                </div>
+                {/* Content always visible */}
+                <div className="flex flex-col flex-1 p-5">
+                  <h3 className="text-xl font-semibold text-white mb-2 line-clamp-1">{project.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies?.map((tech) => (
+                      <span key={tech} className="bg-white/10 text-xs text-gray-100 px-2 py-1 rounded font-mono border border-white/20">
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="pointer-events-auto"
-            >
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-12 w-12 rounded-full bg-black/50 hover:text-white hover:bg-black/70 text-white border-white/20 hover:border-white/40 backdrop-blur-sm"
-                onClick={handlePrev}
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="pointer-events-auto"
-            >
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-12 w-12 rounded-full bg-black/50 hover:text-white hover:bg-black/70 text-white border-white/20 hover:border-white/40 backdrop-blur-sm"
-                onClick={handleNext}
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-            </motion.div>
-          </div>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {/* Live Website Button */}
+                    {liveLink && (
+                      <a
+                        href={liveLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white shadow border border-white/20 transition-colors"
+                        title="Live Website"
+                        aria-label="Live Website"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    )}
+                    {/* Source Button */}
+                    {sourceLink && (
+                      <a
+                        href={sourceLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white shadow border border-white/20 transition-colors"
+                        title="Source Code"
+                        aria-label="Source Code"
+                      >
+                        <Github className="h-5 w-5" />
+                      </a>
+                    )}
+                    {/* Demo Video Button */}
+                    {project.video && (
+                      <a
+                        href={project.video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white shadow border border-white/20 transition-colors"
+                        title="Demo Video"
+                        aria-label="Demo Video"
+                      >
+                        <PlayCircle className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

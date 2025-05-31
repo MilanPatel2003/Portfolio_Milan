@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import {  ArrowUpRight } from 'lucide-react';
 import BlurFade from "@/components/ui/blur-fade";
 import { certificateData } from '@/portfolioData.ts/data';
 

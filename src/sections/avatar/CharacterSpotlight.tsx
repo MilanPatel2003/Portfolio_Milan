@@ -145,10 +145,12 @@ const CharacterSpotlight = () => {
               castShadow
             />
             <Character animationUrl={currentAnimation} isMobile={isMobile} />
-            <OrbitControls 
-              enableZoom={false} 
-              enablePan={false} 
-            />
+            {!isMobile && (
+              <OrbitControls 
+                enableZoom={false} 
+                enablePan={false} 
+              />
+            )}
           </Canvas>
         </Suspense>
       </div>

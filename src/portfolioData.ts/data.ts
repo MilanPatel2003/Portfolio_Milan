@@ -50,7 +50,7 @@ export const projectsData = [
     href: "https://preponyx.web.app/",
     dates: "2025",
     active: true,
-    description: "Built an AI-driven SaaS platform with Firebase, React, and generative AI models (Google AI, OpenAI, LLaMA 3.0). Features include AI-powered mock interviews, a scribble-to-AI converter, personalized course creation, and a PDF summarizer. Integrated a free credit system with Stripe/Razorpay for seamless payments. Optimized frontend with Tailwind CSS and backend using Firestore and Cloud Functions for AI processing.",
+    description: "AI-powered SaaS platform for mock interviews, course creation, and PDF summarization. Built with React, Firebase, and generative AI.",
     technologies: [
       "React",
       "Node",
@@ -72,15 +72,36 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "",
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714520/Screenshot_2025-05-31_231747_q1jk5s.png",
     video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106878/prepOnyx-phase1-demo1-latest2_-_Made_with_Clipchamp_1_1_ysmkbl.mp4",
+  },
+  {
+    title: "React ScreenFlow (NPM PACKAGE)",
+    href: "https://www.npmjs.com/package/react-screenflow",
+    dates: "2024",
+    active: true,
+    description: "Developed a performant React animation library using TypeScript and Framer Motion. Features smooth transitions, spring physics, and 3D transforms. Published as an npm package with ESM/CommonJS support.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Framer Motion"
+    ],
+    links: [
+      {
+        type: "Website",
+        href: "https://www.npmjs.com/package/react-screenflow",
+        icon: FaGlobe as React.ElementType,
+      }
+    ],
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714521/Screenshot_2025-05-31_232502_svath0.png",
+    video: "",
   },
   {
     title: "Mini Ecom - Modern E-commerce Platform",
     href: "https://github.com/yourusername/MINI-ECOM-REDUX-LEARN",
     dates: "2024",
     active: true,
-    description: "Developed a modern e-commerce platform using React, Redux Toolkit, and TypeScript. Features include a responsive product catalog with category filtering, real-time cart management, secure checkout process, and user authentication. Implemented a clean and intuitive UI using Shadcn UI components and Tailwind CSS. Integrated with a RESTful API for product data and implemented state management using Redux Toolkit for efficient data flow. Added features like product search, pagination, and a cart modal for enhanced user experience.",
+    description: "Modern e-commerce platform with product catalog, cart, and secure checkout. Built using React, Redux Toolkit, and TypeScript.",
     technologies: [
         "React",
         "TypeScript",
@@ -102,17 +123,16 @@ export const projectsData = [
             icon: FaGithub as React.ElementType,
         }
     ],
-    image: "",
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714520/Screenshot_2025-05-31_232051_oq5wq9.png",
     video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748115794/mini-ecom-demo-1748115548798_1_gxkpkt.mp4"
 },
 
   {
     title: "Logic Ledger AI MATHNOTES",
     href: "https://logic-ledger.vercel.app/",
-    dates: "2024", // Update with the correct date if needed
+    dates: "2024",
     active: true,
-    description:
-      "Created an AI-powered web app for solving mathematical equations, graphs, and geometric shapes through a digital drawing interface. Built with React, TypeScript, Node.js, and Gemini API(flash-1.5 model), LogicLedger features an interactive canvas, real-time problem analysis, and responsive design. Currently refining AI prompts to enhance accuracy for complex problems.",
+    description: "AI-powered web app for solving math problems from digital drawings. Built with React, Node.js, and Gemini API.",
     technologies: [
       "React",
       "shadCN",
@@ -133,17 +153,16 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/logic_ledger_final_kaan2q.mp4", // Add a video URL if available
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714520/Screenshot_2025-05-31_232120_aepq9b.png",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/logic_ledger_final_kaan2q.mp4",
   },
 
   {
     title: "Tawkist - Real-Time Chat Application",
-    href: "https://tawkist-chat-application.onrender.com", // Replace with the actual link
-    dates: "2024", // Update with the correct date range
+    href: "https://tawkist-chat-application.onrender.com",
+    dates: "2024",
     active: true,
-    description:
-      "Developed Tawkist, a real-time messaging platform hosted on Render. Implemented secure user authentication with JSON Web Tokens and Zod validation, and used WebSockets for instant messaging. Utilised Zustand for state management and Context API for protected routing. Features include real-time online status and optimization for larger screens, with plans for full responsiveness.",
+    description: "Real-time messaging platform with JWT auth, WebSockets, and online status. Built using React, Node.js, and Zustand.",
     technologies: [
       "React",
       "Vite",
@@ -159,7 +178,7 @@ export const projectsData = [
     links: [
       {
         type: "Website",
-        href: "https://tawkist-chat-application.onrender.com", // Replace with the actual link
+        href: "https://tawkist-chat-application.onrender.com",
         icon: FaGlobe as React.ElementType,
       },
       {
@@ -168,16 +187,15 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/TawkistVideo_exsq6b.mp4" , // Add a video URL if available
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714521/Screenshot_2025-05-31_232236_mv12as.png",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/TawkistVideo_exsq6b.mp4" ,
   },
   {
     title: "Sci-Fi 3D Avatar Customization",
     href: "https://milanpatel2003.github.io/ThreeJS/",
-    dates: "2024", // Update with the correct date if needed
+    dates: "2024",
     active: true,
-    description:
-      "Developed an interactive 3D avatar customization tool using Three.js. Users can personalize a sci-fi character model with various options for hair, clothing, and accessories. Implemented a user-friendly interface with lil-gui for easy customization controls.",
+    description: "3D avatar customization tool with real-time controls. Built using Three.js and JavaScript.",
     technologies: [
       "HTML",
       "CSS",
@@ -197,8 +215,8 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106710/3davatar_kuh0cd.mp4", // Add a video URL if available
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714520/Screenshot_2025-05-31_232304_okk4s3.png",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106710/3davatar_kuh0cd.mp4",
   },
 
 
@@ -207,8 +225,7 @@ export const projectsData = [
     href: "https://milanpatel2003.github.io/bootstrap-practice-website/",
     dates: "2023",
     active: true,
-    description:
-      "Developed 'Tin Dog,' a single-page website using Bootstrap for practice purposes. The site features a responsive design, showcasing essential information about a fictional dog dating app in a clean and organized manner. This project demonstrates proficiency in using Bootstrap for creating modern, mobile-friendly web layouts.",
+    description: "Single-page website for a fictional dog dating app. Built with Bootstrap for responsive design.",
     technologies: [
       "HTML",
       "Bootstrap",
@@ -225,17 +242,16 @@ export const projectsData = [
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/tindog_demo_mr6cpq.mp4", // Add a video URL if available
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714521/Screenshot_2025-05-31_232313_dmxf5k.png",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/tindog_demo_mr6cpq.mp4",
       },
 
   {
     title: "Akash Travel",
-    href: "", // Add the project URL if available
-    dates: "2024", // Update with the correct date if needed
+    href: "",
+    dates: "2024",
     active: true,
-    description:
-      "A full-stack web application for travel bookings. Features include user management, package customization, and integrated Razorpay payments. The project demonstrates proficiency in building secure, feature-rich applications with modern web technologies.",
+    description: "Full-stack travel booking app with user management and Razorpay payments. Built using React, Node.js, and MongoDB.",
     technologies: [
       "React",
       "Node.js",
@@ -246,15 +262,15 @@ export const projectsData = [
     links: [
       {
         type: "source",
-        href: "https://github.com/MilanPatel2003/MERN-TRAVEL", // Add the GitHub repository URL if available
+        href: "https://github.com/MilanPatel2003/MERN-TRAVEL",
         icon: FaGithub as React.ElementType,
       },
     ],
-    image: "", // Add an image URL if available
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/akashTravel_ldgbgy.mp4", // Add a video URL if available
+    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714523/Screenshot_2025-05-31_232344_hhxpjl.png",
+    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/akashTravel_ldgbgy.mp4",
   },
   
-  // Add more projects here following the same structure
+
 
 
   // ... other projects ...
