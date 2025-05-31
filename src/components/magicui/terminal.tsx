@@ -110,7 +110,7 @@ export const Terminal = ({ children, className }: TerminalProps) => {
           <div className="h-2 w-2 rounded-full bg-green-500"></div>
         </div>
       </div>
-      <pre className="p-4 overflow-x-auto text-base leading-relaxed scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent">
+      <pre className="p-4 overflow-x-auto overflow-y-hidden text-base leading-relaxed scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent">
         <code className="grid gap-y-1 text-neutral-100" style={{ whiteSpace: 'pre-line' }}>{children}</code>
       </pre>
       <style>

@@ -194,3 +194,11 @@ html.has-scroll-dragging {
   }
 }
 
+.bg-grid {
+  background-color: #000;
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+

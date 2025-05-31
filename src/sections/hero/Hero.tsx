@@ -5,10 +5,14 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Object3D } from 'three';
 import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/magicui/terminal";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import ShimmerButton from "@/components/ui/shimmer-button";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import GradualSpacing from "@/components/ui/gradual-spacing";
+import OrbitingCircles from "@/components/ui/orbiting-circles";
 // import { OrbitingSkills } from "./orbit";
 import About from "./About";
 import Skills from "./Skills";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 function Loader() {
   const { progress } = useProgress();
@@ -69,111 +73,98 @@ export default function Hero() {
     },
   ];
   return (
-    <section className="flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28">
-      <div className="w-full flex flex-col lg:flex-row items-center justify-center mb-8">
-        <div className="w-full lg:w-1/2 h-[250px] sm:h-[300px] md:h-[350px] lg:h-[300px] xl|h-[500px] relative mt-16 sm:mt-20 lg:mt-0">
-          <Canvas
-            gl={{ antialias: true, powerPreference: "high-performance" }}
-            dpr={[1, 2]}
-          >
-            <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={50} />
-            <ambientLight intensity={1.2} />
-            <spotLight
-              position={[0, 10, 0]}
-              angle={0.4}
-              penumbra={0.5}
-              intensity={6}
-              castShadow
-              color="#ffffff"
-            />
-            <spotLight
-              position={[5, 5, 5]}
-              angle={0.3}
-              penumbra={1}
-              intensity={5}
-              castShadow
-              color="#ffffff"
-            />
-            <spotLight
-              position={[-5, 5, 5]}
-              angle={0.3}
-              penumbra={1}
-              intensity={5}
-              castShadow
-              color="#ffffff"
-            />
-            <pointLight
-              position={[2, 2, -2]}
-              intensity={0.8}
-              color="#ffffff"
-            />
-             <pointLight
-              position={[-2, 2, -2]}
-              intensity={0.8}
-              color="#ffffff"
-            />
-            <pointLight position={[0, 5, 0]} intensity={2} color="#ffffff" />
-            <Suspense fallback={<Loader />}>
-              <Model />
-            </Suspense>
-          </Canvas>
-          {/* <div className="absolute inset-0 pointer-events-none z-10">
-            <OrbitingSkills />
-          </div> */}
-        </div>
-        <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
-        <TypewriterEffectSmooth words={words} className="w-fit"/>
-
-          <Terminal className="bg-transparent">
-            <TypingAnimation>
-              &gt; Welcome to my portfolio!
-            </TypingAnimation>
-            <AnimatedSpan delay={1500} className="text-gray-300">
-              ✔ Loading personal information...
-            </AnimatedSpan>
-            <AnimatedSpan delay={2000} className="text-gray-300">
-              ✔ Initializing 3D model...
-            </AnimatedSpan>
-            <AnimatedSpan delay={2500} className="text-gray-300">
-              ✔ Setting up interactive elements...
-            </AnimatedSpan>
-            <AnimatedSpan delay={3000} className="text-gray-300">
-              ✔ Loading skills and experience...
-            </AnimatedSpan>
-            <AnimatedSpan delay={3500} className="text-gray-300">
-              ✔ Portfolio modules loaded.
-            </AnimatedSpan>
-            <AnimatedSpan delay={3000} className="text-gray-300">
-              ✔ Projects fetched successfully.
-            </AnimatedSpan>
-            <AnimatedSpan delay={4500} className="text-gray-300">
-              ✔ Contact form initialized.
-            </AnimatedSpan>
-            <AnimatedSpan delay={5000} className="text-gray-300">
-              ✔ UI animations ready.
-            </AnimatedSpan>
-            <AnimatedSpan delay={5500} className="text-gray-300">
-              ✔ All systems operational.
-            </AnimatedSpan>
-            <AnimatedSpan delay={6000} className="animate-gradient-x">
-              ℹ System Status:
-              - 3D Model: Active
-              - Skills Orbit: Running
-              - Portfolio: Ready
-            </AnimatedSpan>
-          </Terminal>
-       
-          <InteractiveHoverButton className="mt-5">
-                <a
-            href="/Milans_latest_Resume.pdf"
-            download
-          >
-            Download Resume
-          </a> 
-          </InteractiveHoverButton>
+    <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8">
+        {/* Animated headline: Use TypewriterEffectSmooth as before */}
+        <TypewriterEffectSmooth words={words} className="w-fit mb-8" />
+        <Terminal className="w-full max-w-5xl mx-auto bg-black border-2 border-transparent bg-clip-padding shadow-2xl rounded-2xl overflow-hidden">
+          {/* Terminal Header with Name */}
+          <div className="flex items-center gap-3 mb-4">
+            <span className="font-bold text-lg text-gray-300 tracking-widest">MILAN PATEL</span>
+            <span className="text-xs text-gray-400 ml-2">~$</span>
+          </div>
+          {/* Terminal Content: Flex for text and 3D model */}
+          <div className="flex flex-col md:flex-row w-full gap-6 items-center md:items-start">
+            {/* Terminal Text (About Me) with lots of code-style commands */}
+            <div className="flex-1 min-w-[220px] w-full">
+              <AnimatedSpan delay={600} className="font-mono text-gray-200">$ cd ~/workspace</AnimatedSpan>
+              <AnimatedSpan delay={900} className="font-mono text-gray-400">~/workspace</AnimatedSpan>
+              <AnimatedSpan delay={1200} className="font-mono text-gray-200">$ ls -lh</AnimatedSpan>
+              <AnimatedSpan delay={1500} className="font-mono text-gray-400">README.md  ideas.txt  src/  public/  deploy.sh</AnimatedSpan>
+              <AnimatedSpan delay={1800} className="font-mono text-gray-200">$ cat ideas.txt</AnimatedSpan>
+              <AnimatedSpan delay={2100} className="font-mono text-gray-400">- Build beautiful UIs</AnimatedSpan>
+              <AnimatedSpan delay={2300} className="font-mono text-gray-400">- Animate everything</AnimatedSpan>
+              <AnimatedSpan delay={2500} className="font-mono text-gray-400">- Make code readable</AnimatedSpan>
+              <AnimatedSpan delay={2700} className="font-mono text-gray-400">- Ship fast 🚀</AnimatedSpan>
+              <AnimatedSpan delay={2900} className="font-mono text-gray-200">$ bash deploy.sh</AnimatedSpan>
+              <AnimatedSpan delay={3200} className="font-mono text-gray-400">[deploy] Building project...</AnimatedSpan>
+              <AnimatedSpan delay={3500} className="font-mono text-gray-400">[deploy] Success! Portfolio is live.</AnimatedSpan>
+              <AnimatedSpan delay={3800} className="font-mono text-gray-200">$ echo "Ready for new challenges!"</AnimatedSpan>
+              <AnimatedSpan delay={4100} className="font-mono text-gray-400">Ready for new challenges!</AnimatedSpan>
+            </div>
+            {/* 3D Model (Right Side) with OrbitingCircles - hidden on small screens */}
+            <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-[350px] w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <OrbitingCircles radius={110} duration={18} />
+              </div>
+              <Canvas
+                gl={{ antialias: true, powerPreference: "high-performance" }}
+                dpr={[1, 2]}
+              >
+                <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={50} />
+                <ambientLight intensity={1.2} />
+                <spotLight
+                  position={[0, 10, 0]}
+                  angle={0.4}
+                  penumbra={0.5}
+                  intensity={6}
+                  castShadow
+                  color="#ffffff"
+                />
+                <spotLight
+                  position={[5, 5, 5]}
+                  angle={0.3}
+                  penumbra={1}
+                  intensity={5}
+                  castShadow
+                  color="#ffffff"
+                />
+                <spotLight
+                  position={[-5, 5, 5]}
+                  angle={0.3}
+                  penumbra={1}
+                  intensity={5}
+                  castShadow
+                  color="#ffffff"
+                />
+                <pointLight
+                  position={[2, 2, -2]}
+                  intensity={0.8}
+                  color="#ffffff"
+                />
+                <pointLight
+                  position={[-2, 2, -2]}
+                  intensity={0.8}
+                  color="#ffffff"
+                />
+                <pointLight position={[0, 5, 0]} intensity={2} color="#ffffff" />
+                <Suspense fallback={<Loader />}>
+                  <Model />
+                </Suspense>
+              </Canvas>
+            </div>
+          </div>
+        </Terminal>
+        {/* Download Resume button outside terminal */}
+        <div className="mt-6 mb-4 flex w-full justify-center">
+          <a href="/Milans_latest_Resume.pdf" download className="w-full max-w-xs">
+            <ShimmerButton className="w-full py-3 text-base">
+              Download Resume
+            </ShimmerButton>
+          </a>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full relative z-10">
         <About />
         <Skills />
       </div>
