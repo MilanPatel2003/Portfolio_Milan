@@ -6,6 +6,9 @@ import { Object3D } from 'three';
 import { Terminal, AnimatedSpan } from "@/components/magicui/terminal";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import ShimmerButton from "@/components/ui/shimmer-button";
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
+import { SiLeetcode, SiDevdotto } from "react-icons/si";
 
 import About from "./About";
 import Skills from "./Skills";
@@ -54,18 +57,18 @@ export default function Hero() {
   const words = [
     {
       text: "MILAN PATEL",
-      className: "font-light text-2xl sm:text-4xl md:text-3xl lg:text-3xl font-oxanium text-gray-300"
+      className: "font-light text-2xl sm:text-xl md:text-3xl lg:text-3xl font-oxanium text-gray-300"
     },
     // {
     //   text: "Patel",
     // },
     {
       text: "Full-Stack",
-      className: "font-oxanium font-light text-xl sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
+      className: "font-oxanium font-light text-sm sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
     },
     {
       text: "Developer",
-      className: "font-oxanium font-light text-xl sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
+      className: "font-oxanium font-light text-sm sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
     },
   ];
   return (
@@ -74,7 +77,7 @@ export default function Hero() {
         {/* Animated headline: Use TypewriterEffectSmooth as before */}
 
 
-        <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-transparent bg-clip-padding shadow-2xl rounded-2xl overflow-hidden">
+        <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-gray-500/50 bg-clip-padding shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
           <TypewriterEffectSmooth words={words} className="w-fit" />
 
@@ -98,20 +101,35 @@ export default function Hero() {
               <AnimatedSpan delay={2700} className="font-mono text-gray-400">Passionate about building web applications that blend creativity with functionality. MCA student, hands-on with React, Node.js, Python, SQL. Eager to contribute and grow as a developer!</AnimatedSpan>
               <AnimatedSpan delay={3000} className="font-mono text-gray-200">$ contact --all</AnimatedSpan>
               <AnimatedSpan delay={3300} className="font-mono text-gray-400">
-                <a href="mailto:milanpatel6454@gmail.com" className="underline hover:text-blue-400">📧 milanpatel6454@gmail.com</a>
+                <a href="mailto:milanpatel6454@gmail.com" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <MdEmail className="text-lg" /> milanpatel6454@gmail.com
+                </a>
               </AnimatedSpan>
               <AnimatedSpan delay={3600} className="font-mono text-gray-400">
-                <a href="https://www.linkedin.com/in/milan-patel-37650330b" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🔗 linkedin.com/in/milan-patel-37650330b</a>
+                <a href="https://www.linkedin.com/in/milan-patel-37650330b" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <FaLinkedin className="text-lg" /> linkedin.com/in/milan-patel-37650330b
+                </a>
               </AnimatedSpan>
               <AnimatedSpan delay={3900} className="font-mono text-gray-400">
-                <a href="https://github.com/MilanPatel2003" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🐙 github.com/MilanPatel2003</a>
+                <a href="https://github.com/MilanPatel2003" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <FaGithub className="text-lg" /> github.com/MilanPatel2003
+                </a>
               </AnimatedSpan>
               <AnimatedSpan delay={4200} className="font-mono text-gray-400">
-                <a href="https://milanpatel.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">🌐 milanpatel.vercel.app</a>
+                <a href="https://milanpatel.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <FaGlobe className="text-lg" /> milanpatel.vercel.app
+                </a>
               </AnimatedSpan>
-              {/* <AnimatedSpan delay={4500} className="font-mono text-gray-400">
-                <a href="https://leetcode.com/u/MilanPatel2003/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">💡 leetcode.com/u/MilanPatel2003/</a>
-              </AnimatedSpan> */}
+              <AnimatedSpan delay={4500} className="font-mono text-gray-400">
+                <a href="https://leetcode.com/u/MilanPatel2003/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <SiLeetcode className="text-lg" /> leetcode.com/u/MilanPatel2003/
+                </a>
+              </AnimatedSpan>
+              <AnimatedSpan delay={4800} className="font-mono text-gray-400">
+                <a href="https://dev.to/milanpatel2003" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400 flex items-center gap-2">
+                  <SiDevdotto className="text-lg" /> dev.to/milanpatel2003
+                </a>
+              </AnimatedSpan>
             </div>
             {/* 3D Model (Right Side) with OrbitingCircles - hidden on small screens */}
             <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-[350px] w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">
