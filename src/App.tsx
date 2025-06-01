@@ -7,10 +7,9 @@ import ScrollbarCustomizer from "./components/ui/ScrollbarCustomizer";
 import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import { SmoothCursor } from './components/ui/smooth-cursor';
-import FloatingDock from "@/components/ui/FloatingDock";
-import LocomotiveScrollWrapper from './components/ui/LocomotiveScroll';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
 import AmbientLightCursor from './components/ui/AmbientLightCursor';
+import Navbar from './components/Navbar';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
@@ -33,7 +32,7 @@ function AppContent() {
           "rgba(58, 58, 58, 0.8)",
         ]}
       />
-      <LocomotiveScrollWrapper className="h-full w-full relative overflow-hidden bg-grid">
+      <div className="h-full w-full relative overflow-hidden bg-grid">
         <ScrollProgressBar />
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,8 +64,7 @@ function AppContent() {
             <Footer />
           </div>
         </div>
-      </LocomotiveScrollWrapper>
-      <FloatingDock position="top" />
+      </div>
     </Suspense>
   );
 }
@@ -74,6 +72,7 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
+      <Navbar />
       <AppContent />
     </Router>
   );

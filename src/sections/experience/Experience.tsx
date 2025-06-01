@@ -9,7 +9,7 @@ const BLUR_FADE_DELAY = 0.1;
 
 const Experience = () => {
   return (
-    <section id="work" className="w-full py-20">
+    <section id="experience" className="w-full py-20">
       <BlurFade delay={0.1}>
         <div className="text-center mb-16">
           <motion.h2 

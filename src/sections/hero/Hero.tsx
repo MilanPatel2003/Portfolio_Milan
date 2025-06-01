@@ -69,7 +69,7 @@ export default function Hero() {
     },
   ];
   return (
-    <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in">
+    <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in" id="home">
       <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
         {/* Animated headline: Use TypewriterEffectSmooth as before */}
 

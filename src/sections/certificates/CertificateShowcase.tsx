@@ -11,7 +11,7 @@ interface CertificateShowcaseProps {
 
 const CertificateShowcase: React.FC<CertificateShowcaseProps> = ({ certificates }) => {
   return (
-    <section className="w-full py-10 sm:py-16 md:py-20 relative overflow-hidden">
+    <section className="w-full py-10 sm:py-16 md:py-20 relative overflow-hidden" id='certificates'>
       <BlurFade delay={0.1}>
         <div className="text-center mb-10 sm:mb-14 md:mb-16 px-2 sm:px-0">
           <motion.h2 

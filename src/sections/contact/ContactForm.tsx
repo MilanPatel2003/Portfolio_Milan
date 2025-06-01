@@ -22,7 +22,7 @@ function ContactForm() {
   }, [state.submitting, state.succeeded]);
 
   return (
-    <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-4xl mx-auto p-6 sm:p-8 bg-gray-900 bg-opacity-10 backdrop-filter backdrop-blur-xl rounded-2xl shadow-2xl shadow-white/5 border border-gray-800 border-opacity-10 flex flex-col lg:flex-row gap-8 lg:gap-12 my-12">
+    <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-4xl mx-auto p-6 sm:p-8 bg-gray-900 bg-opacity-10 backdrop-filter backdrop-blur-xl rounded-2xl shadow-2xl shadow-white/5 border border-gray-800 border-opacity-10 flex flex-col lg:flex-row gap-8 lg:gap-12 my-12" id='contact'>
       {/* Left Side: Personal Links */}
       <div className="w-full lg:w-1/2 flex flex-col justify-between">
         <div>

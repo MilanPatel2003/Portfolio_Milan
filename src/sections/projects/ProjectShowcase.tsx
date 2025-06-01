@@ -6,7 +6,7 @@ import { projectsData } from '@/portfolioData.ts/data';
 
 const ProjectShowcase: React.FC = () => {
   return (
-    <section className="w-full py-10 sm:py-20 relative overflow-hidden">
+    <section id="projects" className="w-full py-10 sm:py-20 relative overflow-hidden">
       <BlurFade delay={0.1}>
         <div className="text-center mb-8 sm:mb-16 px-4">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-4">
