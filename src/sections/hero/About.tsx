@@ -40,6 +40,7 @@ export default function About() {
 
   
       <div className="relative z-10 text-center max-w-3xl px-4">
+        
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 whitespace-nowrap overflow-hidden">
           <span className="inline-flex items-center">
             I<div className="border rounded-full m-4 w-32"><WordRotate

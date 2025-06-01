@@ -7,7 +7,6 @@ import { Terminal, AnimatedSpan } from "@/components/magicui/terminal";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import ShimmerButton from "@/components/ui/shimmer-button";
 
-import OrbitingCircles from "@/components/ui/orbiting-circles";
 import About from "./About";
 import Skills from "./Skills";
 
@@ -55,7 +54,7 @@ export default function Hero() {
   const words = [
     {
       text: "MILAN PATEL",
-      className: "font-light text-2xl sm:text-4xl md:text-3xl lg:text-5xl font-oxanium text-gray-300"
+      className: "font-light text-2xl sm:text-4xl md:text-3xl lg:text-3xl font-oxanium text-gray-300"
     },
     // {
     //   text: "Patel",
@@ -71,18 +70,23 @@ export default function Hero() {
   ];
   return (
     <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in">
-      <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
         {/* Animated headline: Use TypewriterEffectSmooth as before */}
-        <TypewriterEffectSmooth words={words} className="w-fit mb-8" />
-        <Terminal className="w-full max-w-5xl mx-auto bg-black border-2 border-transparent bg-clip-padding shadow-2xl rounded-2xl overflow-hidden">
+
+
+        <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-transparent bg-clip-padding shadow-2xl rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
+          <TypewriterEffectSmooth words={words} className="w-fit" />
+
           <div className="flex items-center gap-3 mb-4">
+
             <span className="font-bold text-lg text-gray-300 tracking-widest">MILAN</span>
             <span className="text-xs text-gray-400 ml-2">~$</span>
           </div>
           {/* Terminal Content: Flex for text and 3D model */}
           <div className="flex flex-col md:flex-row w-full gap-6 items-center md:items-start">
             {/* Terminal Text (About Me) with lots of code-style commands */}
+
             <div className="flex-1 min-w-[220px] w-full">
               <AnimatedSpan delay={600} className="font-mono text-gray-200">$ whoami</AnimatedSpan>
               <AnimatedSpan delay={900} className="font-mono text-gray-400">Milan Patel (Full-Stack Developer)</AnimatedSpan>
@@ -111,10 +115,8 @@ export default function Hero() {
             </div>
             {/* 3D Model (Right Side) with OrbitingCircles - hidden on small screens */}
             <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-[350px] w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <OrbitingCircles radius={110} duration={18} />
-              </div>
-              <Canvas
+              
+              <Canvas className="overflow-hidden"
                 gl={{ antialias: true, powerPreference: "high-performance" }}
                 dpr={[1, 2]}
               >
