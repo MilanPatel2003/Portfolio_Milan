@@ -57,29 +57,25 @@ export default function Hero() {
   const words = [
     {
       text: "MILAN PATEL",
-      className: "font-light text-2xl sm:text-xl md:text-3xl lg:text-3xl font-oxanium text-gray-300"
+      className: "font-light text-xl sm:text-2xl md:text-3xl lg:text-3xl font-oxanium text-gray-300 break-words"
     },
-    // {
-    //   text: "Patel",
-    // },
     {
       text: "Full-Stack",
-      className: "font-oxanium font-light text-sm sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
+      className: "font-oxanium font-light text-sm sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x break-words",
     },
     {
       text: "Developer",
-      className: "font-oxanium font-light text-sm sm:text-3xl md:text-3xl lg:text-3xl animate-gradient-x",
+      className: "font-oxanium font-light text-sm sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x break-words",
     },
   ];
   return (
     <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in" id="home">
       <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
-        {/* Animated headline: Use TypewriterEffectSmooth as before */}
-
-
         <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-gray-500/50 bg-clip-padding shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
-          <TypewriterEffectSmooth words={words} className="w-fit" />
+          <div className="w-full overflow-x-hidden">
+            <TypewriterEffectSmooth words={words} className="w-full" />
+          </div>
 
           <div className="flex items-center gap-3 mb-4">
 
