@@ -8,8 +8,9 @@ import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import { SmoothCursor } from './components/ui/smooth-cursor';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
-import AmbientLightCursor from './components/ui/AmbientLightCursor';
 import Navbar from './components/Navbar';
+import { useLocomotiveScroll } from './hooks/useLocomotiveScroll';
+import { Spotlight } from './components/ui/spotlight-new';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
@@ -19,9 +20,10 @@ const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlig
 const ContactForm = lazy(() => import('./sections/contact/ContactForm'));
 
 function AppContent() {
+  const scrollRef = useLocomotiveScroll();
+
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <AmbientLightCursor />
       <SmoothCursor />
 
       <ScrollbarCustomizer 
@@ -32,10 +34,11 @@ function AppContent() {
           "rgba(58, 58, 58, 0.8)",
         ]}
       />
-      <div className="h-full w-full relative overflow-hidden bg-grid">
+      <div ref={scrollRef} data-scroll-container className="h-full w-full relative overflow-hidden bg-grid">
         <ScrollProgressBar />
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Spotlight/>
             <motion.main
               className="relative"
               initial={{ opacity: 0 }}
