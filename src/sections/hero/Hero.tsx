@@ -16,7 +16,7 @@ export default function Hero() {
       className: "font-light text-xl sm:text-2xl md:text-3xl lg:text-3xl font-oxanium text-gray-300 break-words"
     },
     {
-      text: "Full-Stack",
+      text: "Software",
       className: "font-oxanium font-light text-sm sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x break-words",
     },
     {
