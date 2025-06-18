@@ -2,17 +2,15 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { motion } from "framer-motion";
 import Footer from './sections/footer/footer';
-import ScrollProgressBar from './components/ui/ScrollProgressBar';
 import { certificateData } from './portfolioData.ts/data';
 import LoadingSpinner from './components/ui/LoadingSpinner';
-import { SmoothCursor } from './components/ui/smooth-cursor';
 import ProjectShowcase from './sections/projects/ProjectShowcase';
 import Navbar from './components/Navbar';
 import { Spotlight } from './components/ui/spotlight-new';
+import ScrollProgressButton from './components/ui/ScrollProgressButton';
 
 const Hero = lazy(() => import('./sections/hero/Hero'));
 const Experience = lazy(() => import('./sections/experience/Experience'));
-const GitHubContributions = lazy(() => import('./components/ui/GitHubContributions'));
 const CertificateShowcase = lazy(() => import('./sections/certificates/CertificateShowcase'));
 const CharacterSpotlight = lazy(() => import('./sections/avatar/CharacterSpotlight'));
 const ContactForm = lazy(() => import('./sections/contact/ContactForm'));
@@ -21,10 +19,11 @@ function AppContent() {
 
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <SmoothCursor />
+      {/* <SmoothCursor /> */}
 
       <div className="h-full w-full relative overflow-hidden bg-grid">
-        <ScrollProgressBar />
+        {/* <ScrollProgressBar /> */}
+        <ScrollProgressButton/>
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Spotlight/>
@@ -38,11 +37,11 @@ function AppContent() {
               <Experience />
               {/* <Projects /> */}
               <ProjectShowcase/>
-              <div className="py-12">
+              {/* <div className="py-12">
                 <GitHubContributions 
                   username="MilanPatel2003"
                 />
-              </div>
+              </div> */}
 
               <CertificateShowcase certificates={certificateData} />
               <CharacterSpotlight />

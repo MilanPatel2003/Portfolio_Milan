@@ -4,7 +4,7 @@ import { PlayCircle } from 'lucide-react';
 
 const ProjectShowcase: React.FC = () => {
   return (
-    <section className="py-20">
+    <section className="py-20" id='projects'>
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-12 text-center">
           Projects
