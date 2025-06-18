@@ -79,7 +79,7 @@ export default function SkillsSection() {
   const isInView = useInView(sectionRef, { amount: 0.2 });
 
   return (
-    <section ref={sectionRef} className="mb-10 py-16 bg-transparent">
+    <section ref={sectionRef} className="mb-10 py-16" id="skills">
       <BlurFade delay={0.1}>
         <div className="text-center mb-16">
           <motion.h2

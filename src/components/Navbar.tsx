@@ -1,18 +1,20 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Download } from 'lucide-react';
-import { RiCodeSSlashLine } from 'react-icons/ri';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
+import { RiCodeSSlashLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Certificates', href: '#certificates' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Skills", href: "#skills" },
+
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Certificates", href: "#certificates" },
+    { name: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -20,14 +22,14 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
   };
@@ -38,23 +40,22 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-black/90 backdrop-blur-lg'
-          : 'bg-transparent'
+        isScrolled ? "bg-black/90 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-      
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center h-full text-white cursor-pointer"
-              onClick={() => scrollToSection('#home')}
-            >
-              <RiCodeSSlashLine 
-              size={40} className="text-gray-300 duration-1000 animate-pulse"/>
-            </motion.div>
-         {/* <FaLaptopCode size={40}/> */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center h-full text-white cursor-pointer"
+            onClick={() => scrollToSection("#home")}
+          >
+            <RiCodeSSlashLine
+              size={40}
+              className="text-gray-300 duration-1000 animate-pulse"
+            />
+          </motion.div>
+          {/* <FaLaptopCode size={40}/> */}
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
@@ -77,7 +78,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="ml-8 inline-flex items-center px-4 py-2 border border-gray-700 rounded-md shadow-sm text-sm font-medium text-white bg-black/50 hover:bg-black/70 backdrop-blur-sm transition-colors duration-200"
             >
-               <Download className="mr-2 h-4 w-4" />
+              <Download className="mr-2 h-4 w-4" />
               Resume
             </motion.a>
           </div>
@@ -140,9 +141,9 @@ const Navbar = () => {
               href="/Milans_latest_Resume.pdf"
               download="Your-Resume.pdf"
               whileTap={{ scale: 0.98 }}
-               className="w-full text-left px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 text-base inline-flex items-center"
+              className="w-full text-left px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 text-base inline-flex items-center"
             >
-               <Download className="mr-2 h-4 w-4" />
+              <Download className="mr-2 h-4 w-4" />
               Download Resume
             </motion.a>
           </div>
@@ -152,4 +153,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

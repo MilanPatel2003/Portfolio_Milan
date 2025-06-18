@@ -25,7 +25,7 @@ export default function Hero() {
     },
   ];
   return (
-    <section className="relative flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in" id="home">
+    <section className="relative flex flex-col items-center justify-start p-2 sm:p-4 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in" id="home">
       <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
         <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-gray-500/50 bg-clip-padding shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
@@ -36,10 +36,10 @@ export default function Hero() {
             <span className="font-bold text-lg text-gray-300 tracking-widest">MILAN</span>
             <span className="text-xs text-gray-400 ml-2">~$</span>
           </div>
-          {/* Terminal Content: Flex for text and 3D model */}
-          <div className="flex flex-col md:flex-row w-full gap-6 items-center md:items-start">
+          {/* Terminal Content: Always horizontal, text fits on mobile */}
+          <div className="flex flex-row w-full gap-4 items-start">
             {/* Terminal Text (About Me) with lots of code-style commands */}
-            <div className="flex-1 min-w-[220px] w-full">
+            <div className="flex-1 min-w-0 w-full px-1 sm:px-2 md:px-4" style={{fontSize: 'clamp(0.8rem, 2.5vw, 1.05rem)'}}>
               <AnimatedSpan delay={600} className="font-mono text-gray-200">$ whoami</AnimatedSpan>
               <AnimatedSpan delay={900} className="font-mono text-gray-400">Milan Patel (Full-Stack Developer)</AnimatedSpan>
               <AnimatedSpan delay={1200} className="font-mono text-gray-200">$ location</AnimatedSpan>

@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-sm text-green-300-300 animate-pulse">
             &copy; {new Date().getFullYear()} Milan Patel. Crafted with passion
-            🤖. All rights reserved.
+            🤖. 
           </p>
         </div>
       </div>
