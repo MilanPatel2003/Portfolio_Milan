@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
         <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-gray-500/50 bg-clip-padding shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
-          <div className="max-w-[460px] overflow-x-hidden">
+          <div className="max-w-[500px] overflow-x-hidden">
             <TypewriterEffectSmooth words={words} className="w-full" />
           </div>
           <div className="flex items-center gap-3 mb-4">
