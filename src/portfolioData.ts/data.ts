@@ -246,29 +246,29 @@ export const projectsData = [
     video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/tindog_demo_mr6cpq.mp4",
       },
 
-  {
-    title: "Akash Travel",
-    href: "",
-    dates: "2024",
-    active: true,
-    description: "Full-stack travel booking app with user management and Razorpay payments. Built using React, Node.js, and MongoDB.",
-    technologies: [
-      "React",
-      "Node.js",
-      "MongoDB",
-      "Bootstrap",
-      "Razorpay",
-    ],
-    links: [
-      {
-        type: "source",
-        href: "https://github.com/MilanPatel2003/MERN-TRAVEL",
-        icon: FaGithub as React.ElementType,
-      },
-    ],
-    image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714523/Screenshot_2025-05-31_232344_hhxpjl.png",
-    video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/akashTravel_ldgbgy.mp4",
-  },
+  // {
+  //   title: "Akash Travel",
+  //   href: "",
+  //   dates: "2024",
+  //   active: true,
+  //   description: "Full-stack travel booking app with user management and Razorpay payments. Built using React, Node.js, and MongoDB.",
+  //   technologies: [
+  //     "React",
+  //     "Node.js",
+  //     "MongoDB",
+  //     "Bootstrap",
+  //     "Razorpay",
+  //   ],
+  //   links: [
+  //     {
+  //       type: "source",
+  //       href: "https://github.com/MilanPatel2003/MERN-TRAVEL",
+  //       icon: FaGithub as React.ElementType,
+  //     },
+  //   ],
+  //   image: "https://res.cloudinary.com/ddjqhdvrk/image/upload/v1748714523/Screenshot_2025-05-31_232344_hhxpjl.png",
+  //   video: "https://res.cloudinary.com/ddjqhdvrk/video/upload/v1748106713/akashTravel_ldgbgy.mp4",
+  // },
   
 
 

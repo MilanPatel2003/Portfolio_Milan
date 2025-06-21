@@ -53,7 +53,7 @@ const ScrollProgressButton: React.FC = () => {
           style={{ transition: 'stroke-dashoffset 0.2s linear', transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
         />
       </svg>
-      <span className="absolute text-xs text-gray-300 opacity-25 font-light select-none pointer-events-none">
+      <span className="absolute text-xs text-white opacity-65 font-light select-none pointer-events-none">
         <FaArrowUp size={25}/>
       </span>
     </button>

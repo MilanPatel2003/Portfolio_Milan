@@ -21,7 +21,7 @@ function AppContent() {
     <Suspense fallback={<LoadingSpinner />}>
       {/* <SmoothCursor /> */}
 
-      <div className="h-full w-full relative overflow-hidden bg-grid">
+      <div className="h-full w-full relative overflow-hidden">
         {/* <ScrollProgressBar /> */}
         <ScrollProgressButton/>
         <div className="relative z-10">

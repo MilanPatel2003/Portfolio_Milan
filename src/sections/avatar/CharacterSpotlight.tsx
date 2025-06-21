@@ -78,7 +78,7 @@ const CharacterSpotlight = () => {
       <div className="w-full lg:w-1/2 p-4 lg:p-8 flex flex-col justify-center items-center lg:items-start text-white">
         <GradualSpacing 
           text="You've Made It This Far!" 
-          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-thin font-oxanium mb-4 text-center animate-gradient-x"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-thin font-oxanium mb-4 text-center text-white"
         />
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,5 @@
 import { Terminal, AnimatedSpan } from "@/components/magicui/terminal";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import ShimmerButton from "@/components/ui/shimmer-button";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
 import { SiLeetcode, SiDevdotto } from "react-icons/si";
@@ -9,27 +8,29 @@ import Spline from '@splinetool/react-spline';
 import About from "./About";
 import Skills from "./Skills";
 
+
 export default function Hero() {
+
   const words = [
     {
       text: "MILAN PATEL",
       className: "font-light text-xl sm:text-2xl md:text-3xl lg:text-3xl font-oxanium text-gray-300 break-words"
     },
     {
-      text: "Software",
-      className: "font-oxanium font-light text-sm sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x break-words",
+      text: "SOFTWARE DEVELOPER",
+        className: "font-light text-lg sm:text-2xl md:text-3xl lg:text-2xl font-oxanium text-gray-300 break-words"
     },
-    {
-      text: "Developer",
-      className: "font-oxanium font-light text-sm sm:text-2xl md:text-3xl lg:text-3xl animate-gradient-x break-words",
-    },
+    // {
+    //   text: "DEVELOPER",
+    //     className: "font-light text-lg sm:text-2xl md:text-3xl lg:text-2xl font-oxanium text-gray-300 break-words"
+    // },
   ];
   return (
     <section className="relative flex flex-col items-center justify-start p-2 sm:p-4 md:p-8 lg:p-10 mt-28 overflow-hidden animate-fade-in" id="home">
       <div className="relative z-10 w-full flex flex-col items-center justify-center mb-8 overflow-hidden">
         <Terminal className="w-full max-w-5xl mx-auto bg-black max-h-fit border-2 border-gray-500/50 bg-clip-padding shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-2xl overflow-hidden">
           {/* Terminal Header with Name */}
-          <div className="w-full overflow-x-hidden">
+          <div className="max-w-[460px] overflow-x-hidden">
             <TypewriterEffectSmooth words={words} className="w-full" />
           </div>
           <div className="flex items-center gap-3 mb-4">
@@ -41,7 +42,7 @@ export default function Hero() {
             {/* Terminal Text (About Me) with lots of code-style commands */}
             <div className="flex-1 min-w-0 w-full px-1 sm:px-2 md:px-4" style={{fontSize: 'clamp(0.8rem, 2.5vw, 1.05rem)'}}>
               <AnimatedSpan delay={600} className="font-mono text-gray-200">$ whoami</AnimatedSpan>
-              <AnimatedSpan delay={900} className="font-mono text-gray-400">Milan Patel (Full-Stack Developer)</AnimatedSpan>
+              <AnimatedSpan delay={900} className="font-mono text-gray-400">Milan Patel (Software Developer)</AnimatedSpan>
               <AnimatedSpan delay={1200} className="font-mono text-gray-200">$ location</AnimatedSpan>
               <AnimatedSpan delay={1500} className="font-mono text-gray-400">Ahmedabad, GJ, India</AnimatedSpan>
               <AnimatedSpan delay={1800} className="font-mono text-gray-200">$ stack --list</AnimatedSpan>
@@ -81,23 +82,23 @@ export default function Hero() {
               </AnimatedSpan>
             </div>
             {/* Spline Scene (Right Side) - hidden on small screens */}
-            <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-[350px] w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">
-                <Spline scene="https://prod.spline.design/FSaZWDPW39gK1TyX/scene.splinecode" />
+            <div className="hidden md:flex flex-1 justify-center items-center min-w-[220px] max-w-full w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] xl:h-[400px] relative">
+            <Spline scene="https://prod.spline.design/FSaZWDPW39gK1TyX/scene.splinecode" />
             </div>
           </div>
         </Terminal>
-        {/* Download Resume button outside terminal */}
-        <div className="mt-6 mb-4 flex w-full justify-center">
-          <a href="/Milans_latest_Resume.pdf" download className="w-full max-w-xs">
-            <ShimmerButton className="w-full py-3 text-base">
-              Download Resume
-            </ShimmerButton>
-          </a>
-        </div>
       </div>
       <div className="w-full relative z-10">
         <About />
         <Skills />
+      </div>
+      <div className="hidden lg:block absolute bottom-0 -z-10 w-full">
+        <video
+          className="w-full h-auto"
+          preload="auto"
+        >
+          <source src="./video/grid.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
   );

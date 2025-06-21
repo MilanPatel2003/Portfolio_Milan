@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
-import {  ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import BlurFade from "@/components/ui/blur-fade";
 import { certificateData } from '@/portfolioData.ts/data';
 
@@ -34,47 +34,28 @@ const CertificateShowcase: React.FC<CertificateShowcaseProps> = ({ certificates 
       </BlurFade>
 
       <div className="max-w-6xl mx-auto px-1 xs:px-2 sm:px-4">
-        <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {certificates.map((certificate, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg group relative">
-                  <div className="relative aspect-[4/3]">
-                    <img
-                      src={certificate.imageUrl}
-                      alt={certificate.title}
-                      className="w-full h-full object-contain p-2 sm:p-4"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {/* Arrow button overlay */}
-                    <a
-                      href={certificate.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-                      aria-label={`Open certificate: ${certificate.title}`}
-                      onClick={e => e.stopPropagation()}
-                    >
-                      <span className="bg-black/70 hover:bg-black/90 text-white rounded-full p-3 flex items-center justify-center shadow-lg">
-                        <ArrowUpRight className="h-6 w-6" />
-                      </span>
-                    </a>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificates.map((certificate, index) => (
+            <BlurFade delay={0.25 + index * 0.1} key={certificate.title}>
+              <Card className="h-full overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg flex flex-col">
+                <a href={certificate.link} target="_blank" rel="noopener noreferrer" className="block relative group flex-grow">
+                  <img
+                    src={certificate.imageUrl}
+                    alt={certificate.title}
+                    className="w-full h-full object-contain p-2 sm:p-4"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <ArrowUpRight className="h-8 w-8 text-white" />
                   </div>
-                  <div className="p-2 sm:p-4">
-                    <h3 className="text-base sm:text-lg font-medium text-white mb-1 sm:mb-2 line-clamp-1">
-                      {certificate.title}
-                    </h3>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                </a>
+                <div className="p-4 border-t border-white/10 h-24 flex items-center justify-center">
+                  <h3 className="text-base sm:text-lg font-medium text-white text-center line-clamp-2">
+                    {certificate.title}
+                  </h3>
+                </div>
+              </Card>
+            </BlurFade>
+          ))}
         </div>
       </div>
     </section>

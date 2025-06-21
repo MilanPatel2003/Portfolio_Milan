@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Download } from "lucide-react";
 import { RiCodeSSlashLine } from "react-icons/ri";
+import ViewResume from "./ui/ViewResume";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,22 +66,24 @@ const Navbar = () => {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-400 hover:text-white transition-all duration-200 relative group text-sm lg:text-base font-medium"
+                className="text-white hover:text-white transition-all duration-200 relative group text-sm lg:text-base font-medium"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
               </motion.button>
             ))}
-            <motion.a
-              href="/Milans_latest_Resume.pdf"
-              download="Your-Resume.pdf"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-8 inline-flex items-center px-4 py-2 border border-gray-700 rounded-md shadow-sm text-sm font-medium text-white bg-black/50 hover:bg-black/70 backdrop-blur-sm transition-colors duration-200"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              Resume
-            </motion.a>
+            <ViewResume
+              trigger={
+                <motion.button
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="ml-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors duration-200"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                 View Resume
+                </motion.button>
+              }
+            />
           </div>
 
           {/* Mobile Menu Button */}
